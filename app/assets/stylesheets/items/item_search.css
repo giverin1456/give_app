@@ -1,0 +1,43 @@
+.item_search{
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+
+.search_items{
+  padding: 10px;
+  text-align: center;
+  border: 3px solid orange;
+  margin: 0 200px;
+}
+
+.search_item{
+  padding: 10px;
+  font-size: 20px;
+}
+
+.subumit{
+  font-size: 30px;
+}
+
+.itemsss{
+  font-size: 300px;
+}
+
+.search_name{
+}
+
+.search_category{
+}
+
+.search_status{
+}
+
+.search_delivery_charge{
+}
+
+.search_day{
+}
+
+.search_price{
+}

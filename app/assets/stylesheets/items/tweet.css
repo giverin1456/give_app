@@ -1,0 +1,92 @@
+.tweet_nav{
+  display: flex;
+}
+
+.lists-rights{
+  margin: 0 0 0 auto;
+  display: flex;
+}
+
+.story_view {
+  /*線の種類（二重線）太さ 色*/
+  border-top: double 5px #FFC778;
+  font-size: 30px;
+  margin: 5px;
+  text-align:center;
+  padding:50px 0;
+
+}
+
+.tweet_list{
+  padding: 20px 20px;
+  margin: 10px auto;
+  color: #2c2c2f;
+  border: 5px solid rgb(247, 226, 188);
+  width: 700px;
+  background-color: rgb(252, 252, 252);
+  display: flex;
+  /* max-width: 750px;
+  height: 200px; */
+  position: relative;
+}
+
+.tweet_image img{
+  width:100%;
+  height:100%;
+}
+
+.tweets_text{
+  width:100%;
+  margin: 20px;
+}
+
+.tweet_under{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  /* padding: 10px; */
+  padding: 10px;
+  color: blue;
+}
+
+.tweet_user{
+  padding: 10px;
+  color: orange;
+}
+
+
+
+
+.tweet_all{
+  text-align: center;
+}
+
+.tweet_text{
+  margin: 0 auto;
+  padding: 200px;
+}
+
+.tweet_images{
+  display: flex;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.tweet_submit{
+  display: flex;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: orange;
+}
+
+.tweetter{
+  width: 400px;
+    /* height: 400px; */
+  margin: 40px auto;
+}
+
+.more{
+  /* display: flex; */
+  text-align:right;
+  
+}

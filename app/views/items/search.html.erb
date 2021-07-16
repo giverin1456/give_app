@@ -1,0 +1,79 @@
+<%= render partial: 'shared/header'%>
+
+<h1 class="item_search">
+  商品検索
+</h1>
+<div class="search_items">
+<%= search_form_for @p, url: search_items_path do |f| %>
+<div class="search_item">
+  <%= f.label :name_eq, '商品名：' ,class:"search_name"%>
+  <%= f.collection_select :name_eq, @item_name, :name, :name,  include_blank: '指定なし' %>
+  <br>
+  </div>
+  <div class="search_item">
+  <%= f.label :category_id_eq, 'カテゴリー：',class:"search_category" %>
+    <%= f.collection_select :category_id_eq, @item_category, :id, :name, include_blank: '指定なし'%>
+    <br>
+    </div>
+    <div class="search_item">
+    <%= f.label :status_id_eq, '商品の状態：',class:"search_status" %>
+    <%= f.collection_select :status_id_eq, @item_status, :id, :name, include_blank: '指定なし'%>
+    <br>
+    </div>
+    <div class="search_item">
+    <%= f.label :delivery_charge_id_eq, '配送料：',class:"search_delivery_charge" %>
+    <%= f.collection_select :delivery_charge_id_eq, @item_delivery_charge, :id, :name, include_blank: '指定なし'%>
+    <br>
+    </div>
+    <div class="search_item">
+    <%= f.label :day_id_eq, '発送日：',class:"search_day" %>
+    <%= f.collection_select :day_id_eq, @item_day, :id, :name, include_blank: '指定なし'%>
+    <br>
+    </div>
+    <div class="search_item">
+    <%= f.label :price, '価格：',class:"search_price" %>
+  <%= f.radio_button :price_lteq, '' %>
+  指定なし
+  <%= f.radio_button :price_lteq, '1000' %>
+  1000円以下
+  <%= f.radio_button :price_lteq, '2500' %>
+  2500円以下
+  <%= f.radio_button :price_lteq, '5000' %>
+  5000円以下
+  <br>
+  </div>
+  <%= f.submit '検索',class:"subumit" %>
+    </div>
+<% end %>
+
+<div class='item-contents'>
+    <h2 class='title'>検索結果</h2>
+    <%#= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <ul class='item-lists'>
+
+<% if @items.length !=0 %>
+  <% @results.each do |item| %>
+   <br>
+   <li class='list'>
+    <div class='item-img-content'>
+      <%= link_to image_tag(item.image.variant(resize: '300x300')),item_path(id: item.id),class:"item-img"%>
+    </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.delivery_charge.name %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+   </li>
+  <% end %>
+ <% else %>
+  該当する商品はありません
+<% end %>
+<br>
+<%# <%= link_to 'トップページへ戻る', root_path %>
