@@ -1,5 +1,10 @@
 .tweet_nav{
   display: flex;
+  position: relative;
+  right: 20px;
+  padding: 20px;
+  /* margin-bottom: 20px; */
+  border-bottom: solid 2px rgb(201, 197, 197);
 }
 
 .lists-rights{
@@ -9,44 +14,105 @@
 
 .story_view {
   /*線の種類（二重線）太さ 色*/
-  border-top: double 5px #FFC778;
   font-size: 30px;
   margin: 5px;
   text-align:center;
-  padding:50px 0;
+  padding:50px ;
+}
 
+.twitter{
+  display: flex;
+}
+
+.tweet_side{
+  width: 25vw;
+  /* height: 200vh; */
+  background-color: rgb(236, 236, 236);
+  /* position: fixed; */
+  margin: 5px 0 0 5px;
+}
+
+.side_text{
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.side_tag{
+  display: block;
+  margin: 20px;
+  font-size: 20px;
+}
+
+
+
+.tweet_main{
+  width: 60vw;
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 5px;
+  width: 90%;
+  background-color: #fff;
+  column-count: 3;
+  column-gap: 0;
 }
 
 .tweet_list{
-  padding: 20px 20px;
-  margin: 10px auto;
+  width: 100%;
+  padding: 0px 20px;
   color: #2c2c2f;
-  border: 5px solid rgb(247, 226, 188);
-  width: 700px;
+  border: 1px solid rgb(209, 209, 209);
+  /* border-collapse: separate; */
   background-color: rgb(252, 252, 252);
   display: flex;
-  /* max-width: 750px;
-  height: 200px; */
   position: relative;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  /* word-wrap:break-all; */
+  padding: 5px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
-.tweet_image img{
-  width:100%;
-  height:100%;
+@media (max-width: 800px) {
+  .tweet_main {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .tweet_main {
+    column-count: 1;
+  }
+}
+
+.tweet_image{
+  width:100vh;
+  height:50vh;
+  position: relative;
+  bottom: 50px;
+}
+
+.ttt{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tweets_text{
-  width:100%;
-  margin: 20px;
+  /* width:60%; */
+  position: relative;
+  bottom: 50px;
 }
 
 .tweet_under{
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 40px;
   /* padding: 10px; */
   padding: 10px;
   color: blue;
+  text-align: center;
 }
 
 .tweet_user{
@@ -62,8 +128,11 @@
 }
 
 .tweet_text{
-  margin: 0 auto;
-  padding: 200px;
+  text-align: left;
+  width: 600px;
+  height: 400px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .tweet_images{
@@ -88,5 +157,85 @@
 .more{
   /* display: flex; */
   text-align:right;
-  
+}
+
+.message-image{
+  width: 50vw;
+  height: 50vw;
+}
+
+.one_tweet{
+  border: 1px solid rgb(209, 209, 209);
+  /* padding: 30px; */
+  margin: 20px auto;
+  width: 50vw;
+  position: relative;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.one_image{
+  text-align: center;
+  margin: 40px;
+}
+
+.one_user{
+  text-align: center;
+}
+
+.one_more_list{
+  display: flex;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.one_edit{
+  background-color: orange;
+  padding: 20px 40px;
+  margin: 20px;
+}
+
+.one_delete{
+  background-color: rgb(201, 201, 201);
+  padding: 20px 40px;
+}
+
+.image_text{
+  /* display: flex; */
+  /* width: 70%;
+    margin: 0 auto; */
+}
+
+.tweet_comment{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.tweet_comments{
+  display: flex;
+  /* justify-content: center; */
+  width: 800px;
+  margin: 40px auto;
+  font-size: 18px;
+    /* margin: 10px 0px; */
+    overflow-wrap: anywhere;
+    /* white-space: pre-wrap; */
+    /* word-wrap: break-word; */
+    text-align: left;
+    box-sizing: border-box;
+    max-width: 500px;
+}
+
+.tweet_comment_text{
+  background-color: rgb(233, 231, 231);
+  border-radius: 100px;
+  border: 1px solid orange;
+  width: 600px;
+  padding: 0 50px;
+}
+
+.tweet_comment h4{
+  font-size: 20px;
 }

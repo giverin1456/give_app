@@ -17,7 +17,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= @item.price %>
+        ¥<%= @item.price %>
       </span>
       <span class="item-postage">
         <%= @item.delivery_charge.name %>
@@ -26,14 +26,15 @@
 
     <% if user_signed_in? && @item.order == nil %>
      <% if current_user.id == @item.user_id %>
+     <div class= "apple">
        <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
-       <p class="or-text">or</p>
-       <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
+       <%# <p class="or-text">or</p> %>
+       <%= link_to "削除", item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"},class:"item-destroy" %>
      <% else %>
        <%= link_to "購入画面に進む", item_orders_path(@item.id), method: :get,class:"item-red-btn"%>
      <% end %>
     <% end %>
-
+    </div>
     <div class="item-explain-box">
       <span><%= @item.text %></span>
     </div>
@@ -78,8 +79,11 @@
   </div>
   <%# /商品の概要 %>
 
+
+
+
   <%# コメント %>
-  <div class="comment-box">
+<div class="comment-box">
   <% if @item.order == nil %>
    <% if user_signed_in? %>
      <%= form_with(model: [@item, @comment], local:true) do |t|%>
@@ -95,18 +99,25 @@
        </strong>
     <% end %>
    <% end %>
-    <div class="comments">
+
+   <div class="tweet_comment">
     <h4>＜コメント一覧＞</h4>
-    <% @comments.each do |comment| %>
-       <p>
-      <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+     <% @comments.each do |comment| %>
+    <div class="tweet_comments">
+       <div class="comment-name">
+      <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+      </div>
+      <div class="tweet_comment_text">
       <%= comment.text %>
-      </p>
+      <%= image_tag(@user.image, class: 'user-image', id: 'message_image') if @user.image.attached?%>
+      </div>
+      </div>
+      </div>
     <% end %>
-    </div>
+
   <%# /コメント %>
 
   <%= link_to "#{@item.category.name}をもっと見る" ,category_items_path(@item), class:"another-item"%>
 </div>
 
-<%= render "shared/footer" %>
+<%= render "shared/second-footer" %>

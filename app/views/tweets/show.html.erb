@@ -1,28 +1,28 @@
-<div class="contents row">
-  <%# <div class="content_post" style="background-image: url(<%= @tweet.image %>
-    <%# if user_signed_in? && current_user.id == @tweet.user_id %>
-      <div class="more">
-        <ul class="more_list">
+<%= render "shared/header" %>
+
+<div class="one_image">
+    <%= image_tag @tweet.image, class: 'message-image' if @tweet.image.attached?%>
+    </div>
+<div class="one_tweet">
+    <%= @tweet.text %>
+    </div>
+    <span class="name">
+    <div class="one_user">
+        <span>投稿者：</span><%= @tweet.user.nickname %>
+    </div>
+
+    <div class="one_more">
+        <ul class="one_more_list">
           <li>
-            <%= link_to '編集', edit_tweet_path(@tweet.id), method: :get %>
+            <%= link_to '編集', edit_tweet_path(@tweet.id), method: :get,class: :one_edit %>
           </li>
           <li>
-            <%= link_to '削除', tweet_path(@tweet.id), method: :delete %>
+            <%= link_to '削除', tweet_path(@tweet.id), method: :delete,data: {confirm: "削除しますか？"},class: :one_delete %>
           </li>
         </ul>
       </div>
-    <%# end %>
-    <%= image_tag @tweet.image.variant(resize: '150x150'), class: 'message-image' if @tweet.image.attached?%>
-    <%= @tweet.text %>
-    <span class="name">
-      <%# <a href="/users/<%= @tweet.user.id %>
-        <span>投稿者</span><%= @tweet.user.nickname %>
       </a>
     </span>
-  </div>
-
-
-
 
 
 <div class="comment-box">
@@ -38,16 +38,22 @@
      <% else %>
        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
        </strong>
-    <% end %>
-    <div class="comments">
-    <h4>＜コメント一覧＞</h4>
-    <% @comments.each do |comment| %>
-       <p>
-      <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-      <%= comment.text %>
-      </p>
-    <% end %>
+   <% end %>
+
+  <div class="tweet_comment">
+    <h4>コメント一覧</h4>
+     <% @comments.each do |comment| %>
+      <div class="tweet_comments">
+       <div class="comment-name">
+        <strong><%= link_to comment.user.nickname ,"/users/#{comment.user_id}" %></strong>
+       </div>
+       <div class="tweet_comment_text">
+        <%= comment.text %>
+       </div>
     </div>
+   </div>
+    <% end %>
   <%# /コメント %>
 
-  <%= link_to "トップページにも戻る", root_path%>
+  <%# <%= link_to "トップページに戻る", root_path%>
+ <%= render partial: "shared/second-footer" %> 

@@ -94,6 +94,18 @@
   resize: none;
 }
 
+.shop_story{
+  height: 300px;
+  width: 200px;
+  margin-top: 5px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  /* padding: 150px; */
+  resize: none;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
 .input-birth-wrap {
   display: flex;
   flex-wrap: wrap;

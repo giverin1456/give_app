@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @items = Item.all
+    # @user = User.new(id:@comment)
   end
 
   def edit

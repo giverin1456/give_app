@@ -2,7 +2,7 @@
 
 <%= form_with(model: @tweet, local: true) do |form| %>
    <div class="tweet_all">
-      <div class="tweetter", id="image-list"></div>
+      <%# <div class="tweetter", id="image-list"></div> %>
       <%= form.file_field :image, class:"tweet_images" ,id:'message_image'%>
       <%= form.text_area :text, class:"tweet_text"%>
       <%= form.submit "投稿する",class:"tweet_submit" %>

@@ -1,39 +1,40 @@
- <%= render "shared/second-header"%>
+<%= render "shared/header" %>
 
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
       <h2 class="page-heading">
+       <div id="image-list"></div>
+       <%= link_to edit_user_path do%>
+        <div class="user_top_img">
+          <%= image_tag(@user.image, class: 'user-image', id: 'message_image') if @user.image.attached?%>
+        </div>
+          <%end%>
+
         <div class="user_profile">
-        <%= "#{@user.nickname}さんのプロフィール" %>
-         </div>
-      <div id="image-list"></div>
-          <%= image_tag @user.image.variant(resize: '150x150'), class: 'user-image', id: 'message_image' if @user.image.attached?%>
-          <%= link_to "編集する", edit_user_path, class: :user_edit %>
-      </h2>
-      <div class="table1">
-            <div class="table__col1">SHOP名：</div>
-            <div class="table__col2"><%= @user.shop_name %></div>
-     </div>
+            <%= @user.nickname %>
+            <%= link_to "編集する", edit_user_path, class: :user_edit %>
+          <div class="table1">
+             <div class="table__col1">SHOP名：</div>
+             <div class="table__col2"><%= @user.shop_name %></div>
+          </div>
+         </h2>
+       </div>
+      </div>
+       
       <div class="table2">
             <div class="table__col3">SHOPストーリー</div>
             <div class="table__col4"><%= @user.shop_text %></div>
       </div>
-
-      <%# <div class="dreams"> %>
-      <%# <%= link_to "応援メッセージを送る", rooms_path,class:"dream-call"%>
-      <%# </div> %>
 
       <h2 class="page-heading">
        <div class= 'user_all_item'>
         <%= "#{@user.nickname}さんの出品商品"%>
         </div>
       </h2>
-      <div class="user__card">
-        <%= render partial: 'items/item', collection: @items %>
-      </div>
+        <%= render partial: 'items/item' %>
     </div>
   </div>
 </div>
 
-<%= render "shared/second-footer"%>
+<%= render partial: "shared/second-footer" %> 

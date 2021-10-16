@@ -1,12 +1,15 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
+    <div class="search_acount">
     <%= link_to image_tag("give.png", class:"furima-icon"), "/" %>
   </div>
+
   <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "input-box" %>
   <%= form.submit "検索", class: "search-button" %>
 <% end %>
+</div>
   <div class='tweet_nav'>
      <ul class='lists-rights'>
      <% if user_signed_in? %>
@@ -19,42 +22,46 @@
       <% end %>
   </div>
 </header>
-<h1 class="story_view">STORY一覧</h1>
 
-<% @tweet.each do |tweet| %>
-<li class="tweet_list">
-  <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_listi">
-          <li>
-            <%= link_to '詳細', tweet_path(tweet.id), method: :get %>
-          </li>
-          <% if user_signed_in? && current_user.id == tweet.user_id %>
-            <li>
-              <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
-            </li>
-            <li>
-              <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-<%# <div class="content_post" style="background-image: url(<%= tweet.image %>
-      
-   <%= image_tag tweet.image.variant(resize: '300x300'), class:'tweet_image',id: 'message-image' if tweet.image.attached?%>
-    <div class="tweets_text">
-    <%= tweet.text%>
+
+
+<div class="twitter">
+ <div class="tweet_side">
+   <div class="side_text">
+    <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
+    <%= link_to "おすすめの投稿", root_path, method: :get, class: "side_tag" %>
+    <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
+    <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
+    <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
+    <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
    </div>
+ </div>
 
-   <div class="tweet_under">
-     <%= tweet.updated_at.strftime('%Y/%m/%d %H:%M') %>
-     <%= link_to "("+tweet.user.nickname+")", user_path(tweet.user.id), class: :tweet_user %>
-   </div>
- </li>
-<% end %>
+ <div class="tweet_main">
+   <% @tweet.each do |tweet| %>
+   <div class="tweet_list">
+      <%= link_to(tweet_path(id: tweet.id)) do%>
+       <div class="image_text">
+      <%= image_tag tweet.image, class:'tweet_image',id: 'message-image' if tweet.image.attached?%>
+        <div class="tweets_text">
+          <%= tweet.text%>
+        </div>
+    </div>
+    <div class="tweet_under">
+      <%= tweet.updated_at.strftime('%Y/%m/%d %H:%M') %>
+      投稿者：<%= link_to tweet.user.nickname, user_path(tweet.user.id), class: :tweet_user %>
+    </div>
+  </div>
+  <%end%>
+  <% end %>
 
 
-<%= link_to(new_tweet_path, class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>投稿する</span>
-  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-<% end %>
+
+   <%= link_to(new_tweet_path, class: 'purchase-btn') do %>
+    <span class='purchase-btn-text'>投稿する</span>
+    <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+   <% end %>
+ </div>
+</div>
+
+ <%= render partial: "shared/second-footer" %> 

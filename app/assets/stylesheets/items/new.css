@@ -1,8 +1,9 @@
+/* item/new&edit 出品画面 */
+
 /* border-bottom: 1px solid #eee; */
 
 
 .items-sell-contents {
-  background-color: #f5f5f5;
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
   display: flex;
@@ -17,7 +18,7 @@
 }
 
 .items-sell-main {
-  background-color: #FFF;
+  background-color: rgb(244, 244, 244);
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
