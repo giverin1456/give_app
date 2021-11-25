@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = @user.items
+    # @tweets = @user.tweets
     # @message = Message.new
     # @room = Room.find(params[:room_id])
     # @messages = @room.messages.includes(:user)
@@ -18,11 +19,15 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-
     # super
     # if account_update_params[:avatar].present?
     #   resource.avatar.attach(account_update_params[:avatar])    
     # end
+  end
+
+  def favorite
+    @user = current_user
+    @favorites = @user.likees(Item)
   end
   
   private

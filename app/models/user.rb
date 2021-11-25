@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :tweets
   has_many :tweet_comments
   has_one_attached :image
+  acts_as_liker
 
   validates :nickname, presence: true, unless: :was_attached?
 

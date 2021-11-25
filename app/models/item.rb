@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
   has_many :comments
+  acts_as_likeable
 
   def was_attached?
     self.image.attached?

@@ -51,9 +51,11 @@
       <%= tweet.updated_at.strftime('%Y/%m/%d %H:%M') %>
       投稿者：<%= link_to tweet.user.nickname, user_path(tweet.user.id), class: :tweet_user %>
     </div>
+    <%#= link_to image_tag(tweet.image, class: 'item-img' )%>
+    <%#= image_tag(item.image, class: "item-img") %>
   </div>
   <%end%>
-  <% end %>
+<% end %>
 
 
 
@@ -61,6 +63,7 @@
     <span class='purchase-btn-text'>投稿する</span>
     <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
    <% end %>
+   
  </div>
 </div>
 

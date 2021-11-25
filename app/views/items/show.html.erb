@@ -34,6 +34,9 @@
        <%= link_to "購入画面に進む", item_orders_path(@item.id), method: :get,class:"item-red-btn"%>
      <% end %>
     <% end %>
+    <%= link_to favorite_item_path, class: "stars" do %>
+    <i class="fa fa-heart"></i><%= current_user.likes?(@item) ? "お気に入り解除" : "お気に入り" %>
+    <%end%>
     </div>
     <div class="item-explain-box">
       <span><%= @item.text %></span>
@@ -109,7 +112,7 @@
       </div>
       <div class="tweet_comment_text">
       <%= comment.text %>
-      <%= image_tag(@user.image, class: 'user-image', id: 'message_image') if @user.image.attached?%>
+      <%#= image_tag @user.image, class: 'user-image', id: 'message_image' %>
       </div>
       </div>
       </div>

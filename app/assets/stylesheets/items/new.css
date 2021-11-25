@@ -32,11 +32,11 @@
 
 /* 共通 */
 .indispensable {
-  background: #ea352d;
+  background: orange;
   margin-left: 8px;
   padding: 3px;
   border-radius: 2px;
-  color: #fff;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
@@ -79,6 +79,13 @@
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 2vh 0;
+}
+
+.img-upload img{
+  max-height: 200px;
+  max-width: 300px;
+
+  margin:20px;
 }
 
 .click-upload {

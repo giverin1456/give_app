@@ -10,7 +10,10 @@ a {
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
-  width: 100vw;
+  width: 80vw;
+  height: 40px;
+  margin: 0 auto;
+  text-align: center;
   background-image: image-url('city-6342765_1280.webp');
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,13 +22,13 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 25vh 15vw;
+  padding: 20vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
 .service-title {
-  font-size: 8vh;
+  font-size: 6vh;
 }
 
 .service-explain {
@@ -40,11 +43,11 @@ a {
 
 .apple-btn {
   margin-right: 1vw;
-  height: 9vh;
+  height: 6vh;
 }
 
 .google-btn {
-  height: 9vh;
+  height: 6vh;
 }
 
 /* //画面上部の「人生を変えるフリマアプリ」帯部分 */
@@ -88,8 +91,8 @@ a {
 }
 
 .list-pict {
-  margin-bottom: 20px;
-  width: 100%;
+  margin-bottom: 10px;
+  width: 60%;
   border-radius: 50%;
 }
 
@@ -117,7 +120,7 @@ a {
 
 .reason-list-text {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 50px;
 }
 
@@ -139,11 +142,11 @@ a {
 }
 
 .story-btn {
-  width: 650px;
+  width: 500px;
 }
 
 .product-btn {
-  width: 650px;
+  width: 500px;
 }
 
 // ストーリーと商品検索ボタン
@@ -182,7 +185,7 @@ a {
 }
 
 .feature-lists>.list {
-  width: 33vh;
+  width: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -237,7 +240,7 @@ a {
 }
 
 .item-lists>.list {
-  width: 37vh;
+  width: 25vh;
   padding: 1vw;
   background-color: #FFF;
   border: 1px solid gainsboro;
@@ -250,8 +253,8 @@ a {
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 20vh;
+  height: 20vh;
 }
 
 .sold-out {

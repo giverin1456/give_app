@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    collection do
+      get :favorite
+    end
+  end
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :tweets do
     resources :tweet_comments
@@ -15,6 +19,9 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    member do
+      get :favorite
+    end
     collection do
       get 'search'
       get 'category'

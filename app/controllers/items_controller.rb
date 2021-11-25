@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.all.order("created_at DESC")
-    
   end
 
   def new
@@ -16,7 +15,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-
     if @item.save
       redirect_to root_path
     else
@@ -28,7 +26,6 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @items = Item.all
-    # @user = User.new(id:@comment)
   end
 
   def edit
@@ -60,6 +57,13 @@ class ItemsController < ApplicationController
     # @items = Item.all
     # @item = Item.find(params[:id])
   end
+
+  def favorite
+    @item = Item.find(params[:id])
+    current_user.toggle_like!(@item)
+    redirect_to item_url @item
+  end
+
 
 
   private
