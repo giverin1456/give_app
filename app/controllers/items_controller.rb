@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   before_action :search_product
   
   def index
+    @item = Item.find(10)
     @items = Item.all.order("created_at DESC")
   end
 
@@ -25,7 +26,9 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-    @items = Item.all
+    @user = @item.user
+    @items = @user.items
+    @shop = @user.shop
   end
 
   def edit
@@ -49,7 +52,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.all
-    @results = @p.result
+    @results = @p.result.order("created_at DESC")
     set_item_column
   end
 

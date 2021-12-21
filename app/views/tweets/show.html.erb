@@ -25,35 +25,44 @@
     </span>
 
 
+<%# comment ---------%>
+
+<div class="comments">
+     <h4>＜コメント一覧＞</h4>
+     <% @comments.each do |comment| %>
+     <div class="comment-content">
+       <div class="comment-name">
+        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+       </div>
+       <div class="comment_text">
+        <%= comment.text %>
+        <%#= image_tag @user.image, class: 'user-image', id: 'message_image' %>
+       </div>
+      </div>
+     </div>
+    <% end %>
+
 <div class="comment-box">
    <% if user_signed_in? %>
      <%= form_with(model: [@tweet, @comment], local:true) do |t|%>
-       <%= t.text_area :text, class: "comment-text", placeholder: "コメントする", rows: "2" %>
+       <%= t.text_area :text, class: "comment-form", placeholder: "コメントする", rows: "2" %>
         <%# </div> %>
         <p class="comment-warn">
         相手のことを考えたコメントを心がけましょう。</p>
         <%= t.submit "コメントする", class: :comment_btn %>
        </div>
-      <% end %>
+       <% end %>
      <% else %>
        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
        </strong>
    <% end %>
 
-  <div class="tweet_comment">
-    <h4>コメント一覧</h4>
-     <% @comments.each do |comment| %>
-      <div class="tweet_comments">
-       <div class="comment-name">
-        <strong><%= link_to comment.user.nickname ,"/users/#{comment.user_id}" %></strong>
-       </div>
-       <div class="tweet_comment_text">
-        <%= comment.text %>
-       </div>
-    </div>
-   </div>
-    <% end %>
   <%# /コメント %>
+
+
+
+
+
 
   <%# <%= link_to "トップページに戻る", root_path%>
  <%= render partial: "shared/second-footer" %> 

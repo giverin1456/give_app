@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="col-md-2 d-flex align-items-center justify-content-end">
-        <%= link_to item_path(favorite), class: "samazon-favorite-item-delete" do %>
+        <%= link_to item_path(favorite), method: :delete, class: "samazon-favorite-item-delete" do %>
           削除
         <% end %>
       </div>

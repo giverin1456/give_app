@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :tweet_comments
   has_one_attached :image
   acts_as_liker
+  has_one :shop
 
   validates :nickname, presence: true, unless: :was_attached?
 

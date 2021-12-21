@@ -1,5 +1,10 @@
 // トップページ
 
+body{
+  word-break: break-all;
+  font-family:Century;
+}
+
 a {
   text-decoration: none;
 }
@@ -211,16 +216,16 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10vh 0;
+  // padding: 10vh 0;
 }
 
 .item-contents>.title {
   font-size: 5vh;
   line-height: 1.4;
   font-weight: bold;
-  margin-bottom: 5px;
-  border-bottom: 5px solid orange;
-  width: 350px;
+  margin: 200px 0 50px 0;
+  border-bottom: 2px solid gray;
+  width: 200px;
   text-align: center;
 }
 
@@ -240,21 +245,22 @@ a {
 }
 
 .item-lists>.list {
-  width: 25vh;
-  padding: 1vw;
+  width: 50vh;
+  padding: 2vw;
   background-color: #FFF;
-  border: 1px solid gainsboro;
   margin: 5px;
 }
 
 
 .item-img-content {
   position: relative;
+  text-align: center;
 }
 
 .item-img {
-  width: 20vh;
-  height: 20vh;
+  width: 43vh;
+  height: 35vh;
+  border: 1px solid rgb(208, 208, 208);
 }
 
 .sold-out {
@@ -276,20 +282,21 @@ a {
 .item-info {
   background-color: #FFF;
   color: black;
-  padding: 1vw;
+  padding: 1vw 0;
 }
 
 .item-name {
-  font-size: 2.5vh;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 2.0vh;
+  margin-bottom: 5px;
+  color: rgb(131, 131, 131);
+  letter-spacing: 0.1em;
 }
 
 .item-price {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
-  color: red;
+  color: rgb(165, 165, 165);
 }
 
 

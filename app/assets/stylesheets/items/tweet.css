@@ -1,22 +1,22 @@
-.tweet_nav{
-  display: flex;
-  position: relative;
-  right: 20px;
-  padding: 20px;
-  border-bottom: solid 2px rgb(201, 197, 197);
+.tweet-search{
+  height: 70px;
 }
 
-.lists-rights{
-  margin: 0 0 0 auto;
-  display: flex;
+.tweet-search-content{
+  margin: 0 0 0 70px;
 }
 
-.story_view {
-  /*線の種類（二重線）太さ 色*/
-  font-size: 30px;
-  margin: 5px;
-  text-align:center;
-  padding:50px ;
+.search-form {
+  width: 50vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 400px;
+  height: 40px;
+  padding-left: 10px;
 }
 
 .twitter{
@@ -24,7 +24,7 @@
 }
 
 .tweet_side{
-  width: 30vw;
+  width: 25vw;
   /* height: 200vh; */
   background-color: rgb(236, 236, 236);
   /* position: fixed; */
@@ -34,7 +34,7 @@
 .side_text{
   padding: 20px;
   position: sticky;
-  top: 20px;
+  top: 120px;
 }
 
 .side_tag{
@@ -57,7 +57,6 @@
 .tweet_list{
   width: 100%;
   padding: 0px 20px;
-  margin: 20px;
   color: #2c2c2f;
   border: 1px solid rgb(209, 209, 209);
   /* border-collapse: separate; */
@@ -87,6 +86,7 @@
   height:50vh;
   position: relative;
   bottom: 50px;
+  object-fit: contain;
 }
 
 .ttt{
@@ -207,34 +207,7 @@
     margin: 0 auto; */
 }
 
-.tweet_comment{
-  text-align: center;
-  margin-top: 50px;
-}
 
-.tweet_comments{
-  display: flex;
-  /* justify-content: center; */
-  width: 800px;
-  margin: 40px auto;
-  font-size: 18px;
-    /* margin: 10px 0px; */
-    overflow-wrap: anywhere;
-    /* white-space: pre-wrap; */
-    /* word-wrap: break-word; */
-    text-align: left;
-    box-sizing: border-box;
-    max-width: 500px;
-}
 
-.tweet_comment_text{
-  background-color: rgb(233, 231, 231);
-  border-radius: 100px;
-  border: 1px solid orange;
-  width: 600px;
-  padding: 0 50px;
-}
 
-.tweet_comment h4{
-  font-size: 20px;
-}
+/* comment-------- */

@@ -1,35 +1,11 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
-  <div class='search-bar-contents'>
-    <div class="search_acount">
-    <%= link_to image_tag("give.png", class:"furima-icon"), "/" %>
-  </div>
-
-  <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "input-box" %>
-  <%= form.submit "検索", class: "search-button" %>
-<% end %>
-</div>
-  <div class='tweet_nav'>
-     <ul class='lists-rights'>
-     <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
-      <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-     </ul>
-      <% end %>
-  </div>
-</header>
-
+<%= render partial: 'shared/header'%>
 
 
 <div class="twitter">
  <div class="tweet_side">
    <div class="side_text">
-    <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
-    <%= link_to "おすすめの投稿", root_path, method: :get, class: "side_tag" %>
+    <%= link_to "TOP", tweets_path, method: :get, class: "side_tag" %>
+    <%= link_to "TWEET", root_path, method: :get, class: "side_tag" %>
     <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
     <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
     <%= link_to "HOME", root_path, method: :get, class: "side_tag" %>
@@ -38,6 +14,16 @@
  </div>
 
  <div class="tweet_main">
+ <div class="tweet-search">
+ <div class="tweet-search-content">
+ <div class="tar">
+  <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "input-box" %>
+  <%= form.submit "検索", class: "search-button" %>
+<% end %>
+</div>
+</div>
+</div>
    <% @tweet.each do |tweet| %>
    <div class="tweet_list">
       <%= link_to(tweet_path(id: tweet.id)) do%>

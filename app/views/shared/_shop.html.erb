@@ -1,0 +1,6 @@
+<%= form_with(model: @shop, local: true) do |f| %>
+<%= f.text_area :name, class:"shop", id:"shop-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+<%= f.text_area :text, class:"shop", id:"shop-text", placeholder:"1000文字まで" ,rows:"7" ,maxlength:"1000" %>
+<%= f.collection_select(:shop_category_id, ShopCategory.all, :id, :name, {}, {class:"shop", id:"shop_category"}) %>
+<%= f.submit "投稿する" ,class:"btn" %>
+<%end%>

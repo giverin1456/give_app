@@ -7,6 +7,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :day
   belongs_to :user
+  belongs_to :shop, optional: true
+
+  
   has_one :order
   has_many :comments
   acts_as_likeable

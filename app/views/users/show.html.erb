@@ -21,7 +21,16 @@
          </h2>
        </div>
       </div>
-       
+
+      <%= link_to "SHOP" , new_shop_path %>
+      <%if @shop.present?%>
+        <%= @shop.name%>
+        <%= @shop.text%>
+        <%= link_to "編集" ,edit_shop_path(@shop)%>
+       <%else%>
+         何もないよ
+      <%end %>
+      
       <div class="table2">
             <div class="table__col3">SHOPストーリー</div>
             <div class="table__col4"><%= @user.shop_text %></div>
@@ -40,5 +49,9 @@
     </div>
   </div>
 </div>
+
+<% @tweets.each do |tweet|%>
+<%=tweet.text%>
+<%end%>
 
 <%= render partial: "shared/second-footer" %> 

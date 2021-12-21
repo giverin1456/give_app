@@ -1,18 +1,26 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+  <div class='top-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("give.png", class:"furima-icon"), "/" %>
   </div>
-  <div class='nav'>
 
+  <div class='nav'>
      <ul class='lists-right'>
      <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, user_path(current_user.id), class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+      <li><%= link_to 'MYPAGE', user_path(current_user.id), class: "header-content" %></li>
+      <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "header-content" %></li> 
+      <li><%= link_to 'STORY', tweets_path, method: :get, class: "header-content" %></li> 
+      <li><%= link_to 'ITEMS', search_items_path, method: :get, class: "header-content" %></li> 
+      <li><%= link_to 'HOME', root_path, class: "header-content" %></li> 
       <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <li><%= link_to 'LOGIN', new_user_session_path, class: "header-content" %></li>
+      <li><%= link_to 'SIGNUP', new_user_registration_path, class: "header-content" %></li>
+      <li><%= link_to 'STORY', tweets_path, method: :get, class: "header-content" %></li> 
+      <li><%= link_to 'ITEMS', search_items_path, method: :get, class: "header-content" %></li> 
+      <li><%= link_to 'HOME', root_path, class: "header-content" %></li> 
      </ul>
       <% end %>
+      </div>
   </div>
 </header>

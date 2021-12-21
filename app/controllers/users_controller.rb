@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = @user.items
+    @tweets = @user.tweets
+    @shop = @user.shop
     # @tweets = @user.tweets
     # @message = Message.new
     # @room = Room.find(params[:room_id])
