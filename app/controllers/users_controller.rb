@@ -4,10 +4,25 @@ class UsersController < ApplicationController
     @items = @user.items
     @tweets = @user.tweets
     @shop = @user.shop
-    # @tweets = @user.tweets
-    # @message = Message.new
-    # @room = Room.find(params[:room_id])
-    # @messages = @room.messages.includes(:user)
+    
+    @currentUserEntry = RoomUser.where(user_id: current_user.id)
+    @roomUser = RoomUser.where(user_id: @user.id)
+    unless @user.id == current_user.id
+      @currentUserEntry.each do |cu|
+        @roomUser.each do |u|
+          if cu.room_id == u.room_id then
+            @isRoom = true
+            @roomId = cu.room_id
+          end
+        end
+      end
+
+      if @isRoom
+      else
+        @room = Room.new
+        @entry = RoomUser.new
+      end
+    end
   end
 
   def edit
@@ -26,6 +41,11 @@ class UsersController < ApplicationController
     #   resource.avatar.attach(account_update_params[:avatar])    
     # end
   end
+
+  # def destroy
+  #   @user = User.find(params[:user_id])
+  #   @favorite = Like.find(like_id: current_user_id, likeable_id: @item.id)
+  # end
 
   def favorite
     @user = current_user

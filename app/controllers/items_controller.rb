@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
   before_action :search_product
   
   def index
-    @item = Item.find(10)
     @items = Item.all.order("created_at DESC")
   end
 
@@ -64,7 +63,9 @@ class ItemsController < ApplicationController
   def favorite
     @item = Item.find(params[:id])
     current_user.toggle_like!(@item)
+    # now「いいね」の状態を逆にする
     redirect_to item_url @item
+    # redirect_toはこのままであってる?
   end
 
 

@@ -30,7 +30,31 @@
        <%else%>
          何もないよ
       <%end %>
-      
+
+
+
+
+
+
+      <% unless @user.id == current_user.id %>
+  <%# <% if (current_user.followed_by? @user) && (@user.followed_by? current_user)  %>
+  <% if @isRoom == true %>
+    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
+
+
       <div class="table2">
             <div class="table__col3">SHOPストーリー</div>
             <div class="table__col4"><%= @user.shop_text %></div>

@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_one_attached :image
   acts_as_liker
   has_one :shop
+  has_many :messages, dependent: :destroy
+  has_many :room_users, dependent: :destroy
 
   validates :nickname, presence: true, unless: :was_attached?
 

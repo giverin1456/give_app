@@ -21,6 +21,9 @@
         <%= link_to item_path(favorite), method: :delete, class: "samazon-favorite-item-delete" do %>
           削除
         <% end %>
+
+        <%# <%= link_to "削除", user_path(@favorite), method: :delete, data: {confirm: "削除しますか？"},class:"item-destroy" %> %>
+        
       </div>
       <% end %>
     </div>

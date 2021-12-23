@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
   resources :shops
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update, :destroy] do
     collection do
       get :favorite
     end
@@ -15,9 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rooms do
-    resources :messages
-  end
+  resources :rooms, only:[:create,:show]
+  resources :messages, only:[:create]
 
   resources :items do
     member do
