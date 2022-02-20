@@ -3,79 +3,138 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">
-       <div id="image-list"></div>
-       <%= link_to edit_user_path do%>
-        <div class="user_top_img">
-          <%= image_tag(@user.image, class: 'user-image', id: 'message_image') if @user.image.attached?%>
-        </div>
-          <%end%>
+      <%= render partial:"shared/user_side_bar"%>
 
-        <div class="user_profile">
-            <%= @user.nickname %>
-            <%= link_to "編集する", edit_user_path, class: :user_edit %>
-          <div class="table1">
-             <div class="table__col1">SHOP名：</div>
-             <div class="table__col2"><%= @user.shop_name %></div>
-          </div>
-         </h2>
+        <div class="page-heading">
+         <div class="user_left">
+           <% if @user.image.present? %>
+
+             <div class="user_top_img">
+              <%= image_tag(@user.image, class: 'user-image', id: 'message_image')%>
+             </div>
+           <%else%>
+             <div class="user_top_img">
+               <%= link_to image_tag("human", class:"user-image")%>
+             </div>
+           <%end%>
+         </div>
+         <div class="user_right">
+
+          <div class="user_profile">
+           <div class="user_profile_nickname">
+             <div class= "user_nickname">
+               <%= @user.nickname %>
+             </div>
+             <%if @user.id == current_user.id%>
+             <div class="two_edit">
+               <%= link_to image_tag("profile",class:"user_edit"),edit_user_path(@user)%>
+               <% if @shop.present?%>
+               <%= link_to image_tag("shop",class:"user_edit"),edit_shop_path(@shop)%>
+             </div>
+               <%end%>
+               <%end%>
+               <% unless @user.id == current_user.id %>
+                <% if @isRoom == true %>
+                <div class="user_chat">
+                  <a href="/rooms/<%= @roomId %>" class="chat2">MESSAGE</a>
+                </div>
+                <%else%>
+                 <%= form_for @room do |f| %>
+                 <%= fields_for @entry do |e| %>
+                 <%= e.hidden_field :user_id, value: @user.id %>
+                <% end %>
+                  <div class="user_chat">
+                    <%= f.submit "MESSAGE", class:"chat"%>
+                 </div>
+                <%end%>
+                <%end%>
+                <%end%>
+                <%if @shop.present?%>
+                 <div class="show_shop_image">
+                  <%= image_tag(@user.shop.image,clsss:"shop_images")%>
+                 </div>
+                 <%end%>
+                </div>
+               </div>
+
+                 <div classs="follow_ask">
+                   <% unless @user.id == current_user.id%>
+                    <%= link_to follow_user_path do %>
+                      <% if current_user.follows?(@user)%>
+                        <div class="follow_cancel">フォロー中</div>
+                    <%else%>
+                        <div class="follow_action">フォロー</div>
+                    <%end%>
+                   <%end%>
+                 <%end%>
+                 
+              
+           
+          
+
+           <div class="follow_number">
+            <div class="follow_contents_number">
+              <%= link_to followees_user_path(@user) do%>
+               <div class="follow_number_count">
+                <%= @user.followees_count%>
+                 <div class="follow_number_text">following</div>
+               </div>
+              <%end%>
+            </div>
+            <div class="follow_contents_number">
+             <%= link_to follower_user_path(@user) do%>
+              <div class="follow_number_count">
+                <%= @user.followers_count%>
+                  <div class="follow_number_text">followers</div>
+              </div>
+             <%end%>
+            </div>
        </div>
-      </div>
 
-      <%= link_to "SHOP" , new_shop_path %>
-      <%if @shop.present?%>
-        <%= @shop.name%>
-        <%= @shop.text%>
-        <%= link_to "編集" ,edit_shop_path(@shop)%>
-       <%else%>
-         何もないよ
-      <%end %>
+       <%if @shop.present?%>
+           <table class="user-table">
+            <tbody>
+              <tr>
+              <th class="detail-shop">SHOP名</th>
+              <td class="detail-user"><%= @shop.name %></td>
+             </tr>
+             <tr>
+              <th class="detail-shop">CATEGORY</th>
+              <td class="detail-user"><%= @shop.shop_category.name %></td>
+             </tr>
+             <tr>
+              <th class="detail-shop">都道府県</th>
+              <td class="detail-user"><%= @shop.prefecture.name %></td>
+             </tr>
+            </tbody>
+           </table>
 
+            <div class="grad-wrap">
+             <input id="trigger1" class="grad-trigger" type="checkbox">
+              <div class="grad-item"><%= @shop.text%></div>
+               <label class="grad-btn" for="trigger1"></label>
+              </div>
+              <%else%>
+             </div>
+            </div>
 
-
-
-
-
-      <% unless @user.id == current_user.id %>
-  <%# <% if (current_user.followed_by? @user) && (@user.followed_by? current_user)  %>
-  <% if @isRoom == true %>
-    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, value: @user.id %>
-      <% end %>
-      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-    <% end %>
-  <% end %>
-<% end %>
-
-
-
-
-
-
-      <div class="table2">
-            <div class="table__col3">SHOPストーリー</div>
-            <div class="table__col4"><%= @user.shop_text %></div>
-      </div>
-      <%=link_to "お気に入り",favorite_users_path(@favorites)%>
-
-      <h2 class="page-heading">
-       <div class= 'user_all_item'>
-        <%= "#{@user.nickname}さんの出品商品"%>
+              <div class="show_shop_image">
+                <%= image_tag("sky",class:"shop_images")%>
+              </div>
+              <div class="shop_make">
+                <%= link_to "SHOPを作る" , new_shop_path %>
+              </div>
+              <%end %>
+          </div>
         </div>
-      </h2>
-        <%= render partial: 'items/item' %>
-        <%# <% @tweets.each do |tweet| %> 
-         <%# link_to tweet.text, tweet_path(tweet.id)%>
-        <%#end%>
+      </div>
     </div>
-  </div>
+
+      <div class="item_tweet_main">
+  <h1 class="item_title">STORY</h1>
+   <%= render partial: "shared/tweet_scroll"%>
+   </div>
+   <div class="item_title">ITEM</div>
+   <%= render partial: 'items/item' %>
 </div>
-
-<% @tweets.each do |tweet|%>
-<%=tweet.text%>
-<%end%>
-
 <%= render partial: "shared/second-footer" %> 

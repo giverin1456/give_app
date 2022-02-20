@@ -1,0 +1,376 @@
+/* shared/_tweet_search */
+.twitter{
+  display: flex;
+}
+
+/* side_bar */
+.tweet_side{
+  width: 35%;
+  margin: 0 0 0 5px;
+}
+.side_text{
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+}
+.tweet-search{
+  height: 70px;
+}
+.tweet-search-content{
+  margin: 40px 0 0 70px;
+}
+.search_forms{
+  display: flex;
+  width: 250px;
+  height: 30px;
+}
+.side_tag{
+  display: block;
+  font-size: 14px;
+}
+.search-form{
+  width: 300px;
+  height: 40px;
+  padding-left: 10px;
+}
+.input-box {
+  width: 200px;
+  height: 30px;
+  padding-left: 10px;
+}
+.tweet_side_image:hover{
+  background-color: rgb(253, 216, 147);
+  transform: scale(1.2, 1.2);
+}
+.search-button {
+  background-color:rgb(242, 207, 143);
+  height: 30px;
+  width: 60px;
+}
+.tweet_home{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+.tweet_side_image{
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  padding: 25px 0 5px 5px;
+  width: 150px;
+  border-bottom: 1px solid rgb(181, 181, 181);
+
+}
+/* /side_bar */
+
+
+
+/* STORY一覧 */
+.tweet_main{
+  width: 60vw;
+  max-width: 600px;
+  margin-top: 20px;
+  width: 90%;
+}
+.tweet_list{
+  color: #2c2c2f;
+  border: 1px solid rgb(209, 209, 209);
+  background-color: #fff1d6;
+  overflow-wrap: anywhere;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px 0 rgba(89, 89, 89, 0.5);
+}
+.tweet_user_information{
+  display: flex;
+  padding: 15px;
+  align-items: center;
+}
+.tweet_default{
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: 1px solid gray;
+  background: white;
+}
+.tweet_user{
+  margin: 0 0 0 7px ;
+  width: 50%;
+  font-size: 15px;
+}
+.tweet_time{
+  width: 50%;
+  text-align: end;
+  font-size: 12px;
+  color: gray;
+}
+.tweet_image{
+  width:100vh;
+  height:50vh;
+  bottom: 50px;
+  object-fit: contain;
+}
+/* STORY一覧 */
+
+/* like */
+.like_comment{
+  justify-content: center;
+  margin: 15px 0;
+  display: flex;
+}
+.tweet_btn{
+  width: 25px;
+  height: 25px;
+}
+/* /like */
+
+/* 続きを読む */
+.tweet-btn::before{
+  content:"続きを読む"
+}
+.tweet-wrap{
+  position: relative;
+}
+.tweet-trigger{
+  position: relative;
+  bottom: 7px;
+  left: 480px;
+  color: gray;
+}
+.tweet-btn {
+  font-size: 12px;
+  padding: 5px 8px;
+  margin: 0 0 0 400px;
+  position: relative;
+  bottom: 10px;
+  left: 70px;
+  color: gray;
+}
+.tweet-item {
+  position: relative;
+  overflow: hidden;
+  height: 80px; 
+  font-size: 15px;
+  margin: 0 auto 15px;
+  width: 80%;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+.tweet-item::before {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%);
+  background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.9) 50%, #fff 100%);
+  content: "";
+}
+.tweet-trigger:checked ~ .tweet-btn::before {
+  content: "閉じる"
+}
+.tweet-trigger:checked ~ .tweet-item {
+  height: auto;
+}
+.tweet-trigger:checked ~ .tweet-item::before {
+  display: none;
+}
+
+/* /続きを読む */
+
+
+
+
+
+
+
+
+
+
+
+
+/* tweet/show */
+
+.tweet_show{
+  display: flex;
+  margin-top: 20px;
+}
+.tweet_left{
+  width: 60%;
+}
+.comment_right{
+  width: 30%;
+}
+.tweet_show_user_information{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom:solid 1px rgb(172, 172, 172);
+}
+.tweet_show_list{
+  color: #2c2c2f;
+  border: 1px solid rgb(209, 209, 209);
+  background-color: #fff1d6;
+  margin: 10px auto;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .5);
+  width: 500px;
+  position: sticky;
+  top: 90px;
+}
+.show_like_comment{
+  justify-content: center;
+  /* margin: 15px 0 50px 0; */
+  display: flex;
+}
+.tweet_show_image{
+  width:100vh;
+  height:50vh;
+  bottom: 50px;
+  object-fit: contain;
+  margin-top: 15px;
+}
+.tweet_show_default{
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid gray;
+  background-color: white;
+}
+.tweet_show_user{
+  font-size: 20px;
+  margin: 0 20px 0 15px;
+}
+.tweet_show_text{
+  position: relative;
+  overflow: hidden;
+  font-size: 15px;
+  margin: 15px auto;
+  width: 80%;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+.tweet_show_time{
+  font-size: 11px;
+  text-align: end;
+  margin: 10px 40px 10px 0;
+  color: gray;
+}
+
+
+
+.tweet_sticky{
+  position: sticky;
+  top: 130px;
+}
+.one_more_list{
+  display: flex;
+  text-align: center;
+  justify-content: center; 
+}
+.one_edit{
+  width: 20px;
+  margin-right: 5px;
+}
+.one_edit:hover{
+  transform: rotate(30deg);
+}
+.one_delete{
+  width: 20px;
+}
+.one_delete:hover{
+  transform: rotate(30deg);
+}
+
+/* .tweet_show_like{
+  width: 30px;
+  height: 30px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* tweet/ new & edit  */
+
+.tweet_preview{
+  margin-top: 10px auto;
+  text-align: center;
+  margin-top: 40px;
+}
+.tweet_preview img{
+  height: 200px;
+  margin-top: 10px;
+}
+.tweet_images{
+display: flex;
+margin: 0 auto;
+padding: 10px;
+}
+.tweet_text{
+text-align: left;
+width: 519px;
+height: 400px;
+white-space: pre-wrap;
+overflow-wrap: break-word;
+padding: 10px;
+}
+.tweet_all{
+  text-align: center;
+}
+.tweet_submit{
+  display: flex;
+  margin: 10px auto 200px auto;
+  padding: 5px 182px;
+  background-color: rgb(255, 234, 195);
+}
+
+
+
+
+
+
+
+
+/* .ttt{
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+/* .one_tweet{
+  border: 1px solid rgb(209, 209, 209);
+  margin: 20px auto;
+  width: 50vw;
+  position: relative;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.one_image{
+  text-align: center;
+  margin: 40px;
+}
+
+.one_user{
+  text-align: center;
+} */
+
+/* @media (max-width: 800px) {
+  .tweet_main {
+    column-count: 2;
+  }
+} */
+
+/* @media (max-width: 480px) {
+  .tweet_main {
+    column-count: 1;
+  }
+} */

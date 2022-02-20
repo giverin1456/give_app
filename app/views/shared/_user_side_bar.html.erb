@@ -1,0 +1,59 @@
+<% if @user.id == current_user.id%>
+<div class="user_menu">
+     <%= link_to tweetfavorite_users_path do%>
+      <div class="user_side_bar">
+       <%= image_tag("like",class:"user_menu_image")%>
+       <div class="user_side_text">お気に入りのTWEET</div>
+      </div>
+     <%end%>
+
+    <%= link_to favorite_users_path do%>
+     <div class="user_side_bar">
+      <%= image_tag("star",class:"user_menu_image")%>
+       <div class="user_side_text">お気に入りのITEM</div>
+     </div>
+    <%end%>
+
+    <%= link_to buy_users_path do%>
+     <div class="user_side_bar">
+      <%= image_tag("danboul",class:"user_menu_image")%>
+       <div class="user_side_text">購入履歴</div>
+     </div>
+    <%end%>
+
+    <%= link_to sale_users_path do%>
+     <div class="user_side_bar">
+      <%= image_tag("money",class:"user_menu_image")%>
+       <div class="user_side_text">売り上げ管理</div>
+     </div>
+    <%end%>
+
+    <%= link_to rooms_path do%>
+     <div class="user_side_bar">
+      <%= image_tag("message",class:"user_menu_image")%>
+       <div class="user_side_text">CHAT</div>
+     </div>
+    <%end%>
+
+    <%= link_to notifications_path do%>
+     <div class="user_side_bar">
+      <%= image_tag("bell",class:"user_menu_image")%>
+       <div class="user_side_text">お知らせ</div>
+     </div>
+    <%end%>
+
+    <%= link_to root_path do%>
+     <div class="user_side_bar">
+      <%= image_tag("home",class:"user_menu_image")%>
+       <div class="user_side_text">HOME</div>
+     </div>
+    <%end%>
+
+    <%= link_to destroy_user_session_path, method: :delete do%>
+     <div class="user_side_bar">
+      <%= image_tag("logout",class:"user_menu_image")%>
+       <div class="user_side_text">LOGOUT</div>
+     </div>
+    <%end%>
+  <%end%>
+</div>

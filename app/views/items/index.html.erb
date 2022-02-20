@@ -1,100 +1,57 @@
 <%= render partial: 'shared/header'%>
+
 <div class='main'>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <%# TOP画像 %>
   <div class='title-contents'>
-    <h2 class='service-title'>
-      いつでも「 i 」が主人公
-    </h2>
-    <p class='service-explain'>
-      頑張っているあなたを応援します。
-    </p>
-    <p class='service-explain'>
-      さぁGiveを始めよう。
-    </p>
-    <div class='store-btn'>
-      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
-      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
-    </div>
+   <div class="top_image">
+   <%= image_tag "orange", class: "main_image"%>
+   <p>あなたの"想い"がつながる場所。</p>
+   <div class="main_image_text"><span>Give</span>で未来を掴もう。</div>
+   <%= image_tag("main_image2",class:"main_image2")%>
+   </div>
   </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
-
-
-
-  <%# ストーリーと商品検索ページボタン%>
-  <div class='story-product'>
-    <%= link_to image_tag("index.photo.jpg",class: 'story-btn'),search_items_path%>
-    <%= link_to image_tag("index.story.jpg",class: 'product-btn'),tweets_path%>
-    <%= link_to image_tag("index.story.jpg",class: 'product-btn'),shops_path%>
-  </div>
-
-
-
-
-
-
-  <%# 商品一覧 %>
-  <div class='item-contents'>
-    <h2 class='title'>pick up</h2>
-    
-    <ul class='item-lists'>
-      <% if @items.present? %>
-      <% @items.each do |item| %>
-      <li class='list'>
-        <%= link_to item_path(id: item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag(item.image, class: "item-img") %>
-
-          <% if item.order != nil %>
-          <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-          <% end%>
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.name %>
-          </h3>
-          <div class='item-price'>
-            <span>¥<%= item.price %>円</span>
-
-            <div class='star-btn'>
-              <%# <%= image_tag "star.png", class:"star-icon" %>
-              <%# <span class='star-count'>0</span> %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </li>
-      <% end %>
-
-      <% else %>
-       <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
-            <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </li>
-      <% end %>
-      
-    </ul>
-  </div>
+  <%# //TOP画像 %>
   
-  <%# /商品一覧 %>
+  <%# SELECT部分 %>
+  <div class="top_choice">
+   <h1 class="item_title">SELECT</h1>
+   
+   <%= link_to search_items_path do%>
+   <div class="story-product">
+    <div class="item_search_page">
+     <%= image_tag("item_main", class:"shopping_image")%>
+     <div class="product-btn">ITEM</div>
+    </div>
+    <%end%>
+
+    <%= link_to search_tweets_path do%>
+    <div class="tweet_search_page">
+     <%= image_tag("tweet_main", class:"shopping_image")%>
+     <div class="product-btn">STORY</div>
+    </div>
+    <%end%>
+   </div>
+  </div>
+  <%# //SELECT部分 %>
+  <div class="item_tweet_main">
+  <div class="title_new_content">
+  <h1 class="item_title">STORY</h1>
+  <%= image_tag("new",class:"tweet_new_title")%>
+  </div>
+       <div class="ososo">
+   <div class="tweet_scroll_search">
+   <%= link_to "さらに見る",search_tweets_path %>
+   </div>
+  <%= render partial: "shared/tweet_scroll"%>
+  </div>
+
+  <%# Itemsearch %>
+  <div class="title_new_content">
+ <h1 class="item_title">ITEM</h1>
+ <%= image_tag("new",class:"item_new_title")%>
+ </div>
+ <%= render partial: "shared/item_search"%>
 </div>
-<%= link_to(new_item_path, class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>出品する</span>
-  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-<% end %>
+
  <%= render partial: "shared/second-footer" %> 

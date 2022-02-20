@@ -1,26 +1,47 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
+
 <header class='top-page-header'>
   <div class='top-header'>
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("give.png", class:"furima-icon"), "/" %>
-  </div>
+   <div class='search-bar-contents'>
+    <%= link_to image_tag("give_icon", class:"give-icon"), "/" %>
+   </div>
 
-  <div class='nav'>
+    <div class='nav'>
      <ul class='lists-right'>
-     <% if user_signed_in? %>
-      <li><%= link_to 'MYPAGE', user_path(current_user.id), class: "header-content" %></li>
-      <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "header-content" %></li> 
-      <li><%= link_to 'STORY', tweets_path, method: :get, class: "header-content" %></li> 
-      <li><%= link_to 'ITEMS', search_items_path, method: :get, class: "header-content" %></li> 
-      <li><%= link_to 'HOME', root_path, class: "header-content" %></li> 
-      <% else %>
-      <li><%= link_to 'LOGIN', new_user_session_path, class: "header-content" %></li>
-      <li><%= link_to 'SIGNUP', new_user_registration_path, class: "header-content" %></li>
-      <li><%= link_to 'STORY', tweets_path, method: :get, class: "header-content" %></li> 
-      <li><%= link_to 'ITEMS', search_items_path, method: :get, class: "header-content" %></li> 
-      <li><%= link_to 'HOME', root_path, class: "header-content" %></li> 
+      <% if user_signed_in? %>
+    
+       <li>
+        <%= link_to notifications_path do%>
+         <%= image_tag("bell",class:"bell_btn")%>
+         <% if unchecked_notifications.any? %>
+          <%= image_tag("maru",class:"circle")%>
+         <% end %>
+        <%end%>
+       </li> 
+     
+       <li><%= link_to image_tag("home",class:"header_image"),root_path%></li>
+       <li><%= link_to image_tag("camera",class:"header_image"),new_item_path%></li>
+       <% if current_user.image.present? %>
+         <li><%= link_to image_tag(current_user.image,class: "header_user_icon"),user_path(current_user.id) %></li>
+       <%else%>
+         <%= link_to image_tag("human", class:"header_user_icon"),user_path(current_user.id) %>
+       <%end%>
+       <%else%>
+        <li><%= link_to 'LOGIN', new_user_session_path, class: "header-content" %></li>
+        <li><%= link_to 'SIGNUP', new_user_registration_path, class: "header-content" %></li>
      </ul>
       <% end %>
-      </div>
+    </div>
+   </div>
+
+  <div class="header_search">
+    <div class="header_right">
+     <%= link_to "ITEMを探す",search_items_path,class:"header_search_list"%>
+     <%= link_to "SHOPを探す",search_shops_path,class:"header_search_list"%>
+     <%= link_to "STORYを探す",search_tweets_path,class:"header_search_list"%>
+    </div>
+    <div class="header_left">
+      <%= link_to "STORYを投稿する",new_tweet_path,class:"header_search_list"%>
+      <%= link_to "出品する",new_item_path,class:"header_search_list"%>
+    </div>
   </div>
 </header>

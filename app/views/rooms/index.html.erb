@@ -1,0 +1,47 @@
+<%= render partial: 'shared/header'%>
+
+
+<div class="chat_room">
+  <div class="room_user">
+  <%# side_bar部分%>
+   <div class="soll2">
+    <div class="tadfd">
+     <div class="message_user_list">
+      <%= current_user.nickname%>
+     </div>
+    </div>
+   </div>
+
+   <%# user_image/user_nickname部分 %>
+  <div class="soll">
+   <div class="room_user_images">
+    <% @fort.each do |f|%>
+     <div class="room_user_image">
+     <% if f.user.image.present? %>
+      <%= image_tag (f.user.image),class:"room_user_content"%>
+      <%else%>
+         <%= link_to image_tag("human", class:"room_user_content"),user_path(current_user.id) %>
+        <%end%>
+     </div>
+    <%end%>
+   </div>
+
+    <div class="room_chat_name">
+     <% @roomNickname.each do |t| %>
+      <div class="chat_nickname_content">
+       <a href="/rooms/<%= t.room_id %>" class="chat_nickname"><%=t.nickname%></a>
+      </div>
+     <%end%>
+    </div>
+   </div>
+  </div>
+  <%# /user_image+user_nickname部分 %>
+  <%# /side_bar%>
+
+  <%# チャットdemo部分 %>
+  <div class="main_chat_demo">
+    <div class="chat_demo">
+     <%= image_tag("message",class:"chat_demo_image")%>
+    </div>
+  </div>
+</div>

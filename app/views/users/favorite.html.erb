@@ -1,34 +1,73 @@
-<div class="container  d-flex justify-content-center mt-3">
-  <div class="w-75">
+<%= render "shared/header" %>
+
+<div class="item_favorite">
+ <div class="favorite">
+
+  <div class="favorite_title">
     <h1>お気に入り</h1>
-
-    <hr>
-
-    <div class="row">
+  </div>
+  
+  <%if @favorites.present?%>
+    <div class="favorite_style">
       <% @favorites.each do |favorite| %>
-      <div class="col-md-8 mt-2">
-        <div class="d-inline-flex">
-          <%= link_to item_path(favorite), class: "w-25" do %>
-            <%= image_tag favorite.image, class: "img-fuild w-100" %>
+
+      <div class="favoreite_list">
+        <div class="favorite_content">
+          <%= link_to item_path(favorite) do %>
+           <div class="favorite_image_list">
+            <%= image_tag favorite.image, class: "favorite_image" %>
+             <% if favorite.order != nil%>
+              <div class="sold-out">
+               <%= image_tag("sold_out")%>
+              </div>
           <% end %>
-          <div class="container mt-3">
-            <h5 class="w-100 samazon-favorite-item-text"><%= favorite.name %></h5>
-            <h6 class="w-100samazon-favorite-item-text">￥<%= favorite.price %></h6>
+           </div>
+      <div class="ale">
+        <div class="konnnitiha">
+          <div class="favorite_text">
+            <h5 class="favorite_name"><%= favorite.name %></h5>
+              <div onclick="favorite('<%= item_path(favorite) %>/favorite')">
+               <%= image_tag("destroy",class:"item_favorite_delete")%>
+              </div>
+          </div>
+           <div class="dosss">
+            <div class="favorite_price">￥<%= favorite.price %></div>
+           </div>
+        </div>
+         <div class=item_favorite_right>
+            <div class="cos">
+                <%= image_tag "right_yazirusi",class:"yazirusi"%>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-2 d-flex align-items-center justify-content-end">
-        <%= link_to item_path(favorite), method: :delete, class: "samazon-favorite-item-delete" do %>
-          削除
-        <% end %>
-
-        <%# <%= link_to "削除", user_path(@favorite), method: :delete, data: {confirm: "削除しますか？"},class:"item-destroy" %> %>
-        
-      </div>
       <% end %>
     </div>
+    <%else%>
 
-    <hr>
+    <div class="not_item_favorite">
+     <%= link_to image_tag("shopping",class:"not_favorite_image"),search_items_path %>
+      <p>お気に入りに商品がありません...</p>
+    </div>
+    <%end%>
 
   </div>
+ </div>
 </div>
+
+
+<script>
+function favorite(url) {
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function() {
+      if (req.readyState == 4) {
+        location.reload();
+      }
+    }
+    req.open('GET', url, true);
+    req.send(null);
+}
+</script>
+
+<%# <%= render "shared/second-footer" %>

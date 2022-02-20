@@ -9,21 +9,22 @@
   </div>
 
   <%#= render 'shared/error_messages', model: f.object %>
-
-  <div id="image-list"></div>
+  <div class="user_image_list">
+   <div id="image-list"></div>
+  </div>
   <%= render 'shared/error_messages', model: f.object %>
   <div class="form-group">
     <div class='form-text-wrap'>
-    <%= f.file_field :image, class: 'olddd', id:"message_image" %>
+     <%= f.file_field :image, class: 'user_image_preview', id:"message_image" %>
     </div>
-    </div>
+  </div>
 
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"18" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -73,26 +74,6 @@
     </div>
     <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   </div>
-
-  <div class="form-group">
-   <div class='form-text-wrap'>
-    <label class="form-text">SHOP名</label>
-      <span class="indispensable">後でもOK</span>
-      </div>
-    <div class='input-name-wrap'>
-      <%= f.text_area :shop_name, class:"input-name", id:"last-name", placeholder:"例) 山田" %>
-      </div>
-    </div>
-
-  <div class="form-group">
-   <div class='form-text-wrap'>
-    <label class="form-text">Myストーリー</label>
-      <span class="indispensable">後でもOK</span>
-      </div>
-      <div class='input-name-wrap'>
-      <%= f.text_area :shop_text, class:"shop_story", id:"shop_text", placeholder:"例) 山田" %>
-      </div>
-    </div>
 
   <div class="form-group">
     <h2 class='form-bottom-text'>

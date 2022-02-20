@@ -1,81 +1,8 @@
 <%= render partial: 'shared/header'%>
 
-<div class="wrapper">
-  <div class="side-bar">
-    <div class="search_category">
-    <div class="search_items">
-      <%= search_form_for @p, url: search_items_path do |f| %>
-      <div class="search_item">
-        <%= f.label :name_eq, '商品名' ,class:"search_name"%>
-        <%= f.collection_select :name_eq, @item_name, :name, :name,  include_blank: '指定なし' %>
-      <br>
-    </div>
-    <div class="search_item">
-        <%= f.label :category_id_eq, 'カテゴリー',class:"search_category" %>
-        <%= f.collection_select :category_id_eq, @item_category, :id, :name, include_blank: '指定なし'%>
-      <br>
-    </div>
-    <div class="search_item">
-      <%= f.label :status_id_eq, '商品の状態',class:"search_status" %>
-      <%= f.collection_select :status_id_eq, @item_status, :id, :name, include_blank: '指定なし'%>
-      <br>
-    </div>
-    <div class="search_item">
-      <%= f.label :delivery_charge_id_eq, '配送料',class:"search_delivery_charge" %>
-      <%= f.collection_select :delivery_charge_id_eq, @item_delivery_charge, :id,:name, include_blank: '指定なし'%>
-     <br>
-    </div>
-    <div class="search_item">
-      <%= f.label :day_id_eq, '発送日',class:"search_day" %>
-      <%= f.collection_select :day_id_eq, @item_day, :id, :name, include_blank: '指定なし'%>
-     <br>
-    </div>
-    <div class="search_item">
-      <%= f.label :price, '価格',class:"search_price" %>
-      <div class="eeee">
-      <%= f.radio_button :price_lteq, '' %>
-        指定なし
-      <%= f.radio_button :price_lteq, '1000' %>
-        1000円以下
-      <%= f.radio_button :price_lteq, '2500' %>
-        2500円以下
-      <%= f.radio_button :price_lteq, '5000' %>
-        5000円以下
-     <br>
-    </div>
-    </div>
-    <div class="item_submit">
-    <%= f.submit '検索',class:"subumit" %>
-    </div>
-    </div>
-  </div>
-  <% end %>
- </div>
-
-  <div class="chat">
-    <div class='item-contents'>
-     <%#= link_to '新規投稿商品', "#", class: "subtitle" %>
-     <ul class='item-lists'>
-      <% if @items.length !=0 %>
-      <% @results.each do |item| %>
-      <li class='list'>
-      <%= link_to item_path(id: item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag(item.image, class: "item-img") %>
-          </div>
-       <div class='item-info'>
-         <h3 class='item-name'>
-          <%= item.name %>
-         </h3>
-         <div class='item-price'>
-           <span><%= item.price %>円<br><%= item.delivery_charge.name %></span>
-         </div>
-       </div>
-     </li>
-     <%end%>
-  <% end %>
- <% else %>
-  <h1>該当する商品はありません</h1>
-<% end %>
-  </div>
-</div> 
+ <div class="main">
+   <h1 class="item_title">
+    ITEM
+   </h1>
+  <%= render partial: "shared/item_search"%>
+</div>

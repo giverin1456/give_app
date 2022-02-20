@@ -1,82 +1,135 @@
-/* item/search商品検索ページ */
-
-.search_category{
-  position: sticky;
-  top: 150px;
-}
-
-.search_items{
-  padding: 5px;
-  margin: 20px 0;
-}
-
-  .search_item{
-  padding: 5px;
-  font-size: 19px;
-}
-
-.subumit{
-  font-size: 22px;
-  padding: 0 20px;
-  margin: 10px;
-  letter-spacing: 0.1em;
-}
-
-.aaaaaaa{
-  padding: 300px;
-}
-
-.itemsss{
-  font-size: 300px;
-}
-
-.search_name{
-  margin-right: 20px;
-}
-
-.search_category{
-}
-
-.search_status{
-}
-
-.search_delivery_charge{
-  margin-right: 20px;
-}
-
-.search_day{
-  margin-right: 20px;
-}
-
-.search_price{
-  margin-right: 200px;
-}
-
-.eeee{
-  padding: 10px;
-  font-size: 20px;
-}
+/* // item/index/商品一覧＋item_search */
 
 .wrapper {
   display: flex;
+  /* margin-top: 50px; */
 }
-
+.title_new_content{
+  position: relative;
+}
+.item_new_title{
+  position: absolute;
+  top: -10px;
+  left: 457px;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
 .side-bar {
-  background-color:rgb(248, 228, 190);
-  width: 300px;
-  margin-left: 5px;
+  width: 17vw;
+  margin: 15px 5px 0 0;
 }
-
-.chat {
-  background-color: #FFFFFF;
-  width: calc(100vw - 300px);
+.search_category{
+  position: sticky;
+  top: 200px;
 }
-
-.search_item select{
-  width: 250px;
+.search_items{
+  padding: 5px;
 }
-
+.search_item{
+  padding: 5px;
+  font-size: 19px;
+}
+.item_search_content{
+  margin-right: 20px;
+  font-size: 15px;
+}
+.item_form{
+  width: 200px;
+  height: 30px;
+  font-size: 13px;
+  color:gray;
+}
+.item-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.item-lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.item-lists>.list {
+  width: 28vh;
+  padding: 0 20px 40px 20px;
+}
+.item-img-content {
+  position: relative;
+  text-align: center;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
+}
+.item-img {
+  width: 28vw;
+  height: 19vh;
+  border: 1px solid rgb(208, 208, 208);
+}
+.item-img:hover{
+  border: 2px solid black;
+}
+.sold-out {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  text-align: center;
+}
+.sold-out>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+.item-info {
+  color: black;
+  padding: 1vw 0;
+}
+.item-name {
+  font-size: 1vw;
+  font-weight: bold;
+  margin-bottom: 5px;
+  letter-spacing: 0.1em;
+}
+.item-price {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(128, 128, 128);
+}
+.not_search_item{
+  width: 60%;
+  text-align: center;
+  margin-top: 70px;
+}
+.search_form{
+  width: 85px;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 5px;
+}
 .item_submit{
   text-align: center;
   margin: 20px 0 0 0;
 }
+.search_submit{
+  font-size: 15px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+
+
+
+/* .search_price{
+  width: 10vh;
+  margin: 0 auto;
+  text-align: center;
+} */
+/* .item_search_title{
+  color: gray;
+  border-bottom: solid 1px rgb(220, 220, 220);
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+} */

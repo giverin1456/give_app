@@ -8,7 +8,7 @@ class ItemOrder
     validates :street
     validates :item_id
     validates :user_id
-    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :prefecture_id, numericality: { other_than: 1,message:'を入力して下さい' }
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }, length: { is: 8 }
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }, length: { maximum: 11 }
   end

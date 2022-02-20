@@ -1,71 +1,73 @@
-/* 下部広告部分 */
-/* items/index.htmlの広告cssを所々使いまわしています。 */
+// /* 下部広告部分 */
 
-.ad-footer-contents {
-  width: 100vw;
-  background-image: image-url('furima-footer.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5vh 15vw;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-}
+// .ad-footer-contents {
+//   width: 100vw;
+//   background-image: image-url('furima-footer.png');
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: top center;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 5vh 15vw;
+//   color: #fff;
+//   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+// }
 
-.ad-footer-title {
-  font-size: 4vh;
-  margin-bottom: 2vh;
-}
+// .ad-footer-title {
+//   font-size: 4vh;
+//   margin-bottom: 2vh;
+// }
 
-.ad-footer-explain {
-  font-size: 3vh;
-  line-height: 30px;
-}
+// .ad-footer-explain {
+//   font-size: 3vh;
+//   line-height: 30px;
+// }
 
-/* //下部広告部分 */
+// /* //下部広告部分 */
 
-.footer {
-  width: 100vw;
-  padding: 5vh 0;
-  color: rgb(255, 255, 255);
-  background-color:white;
-  text-align: center;
-}
+// .footer {
+//   width: 100vw;
+//   padding: 5vh 0;
+//   color: rgb(255, 255, 255);
+//   background-color:white;
+//   text-align: center;
+//   position: absolute;
+//   bottom: 0;
 
-.footer-contents {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5vh;
-}
+// }
 
-.furima-details {
-  margin: 0 4vw;
-}
+// .footer-contents {
+//   display: flex;
+//   justify-content: center;
+//   margin-bottom: 5vh;
+// }
 
-.footer-content-head {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+// .furima-details {
+//   margin: 0 4vw;
+// }
 
-.footer-link {
-  color: #FFF;
-  font-size: 12px;
-  line-height: 30px;
-}
+// .footer-content-head {
+//   font-size: 18px;
+//   font-weight: bold;
+//   margin-bottom: 10px;
+// }
 
-.logo-white {
-  width: 20vh;
-  vertical-align: bottom;
-}
+// .footer-link {
+//   color: #FFF;
+//   font-size: 12px;
+//   line-height: 30px;
+// }
 
-.footer>p {
-  font-size: 14px;
-}
+// .logo-white {
+//   width: 20vh;
+//   vertical-align: bottom;
+// }
+
+// .footer>p {
+//   font-size: 14px;
+// }
 
 
 
@@ -77,23 +79,23 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 200px;
+
 }
 
 .second-fotter-text-wrap {
-  margin: 15px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
 }
 
 .second-fotter-text {
   color: #333;
-  font-size: 12px;
+  font-size: 10px;
   margin: 0 10px;
 }
 
 .second-fotter-logo {
-  width: 100px;
-  /* height: 49px; */
+  width: 5vw;
   margin: 0 auto;
 }

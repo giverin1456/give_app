@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_20_022901) do
+ActiveRecord::Schema.define(version: 2022_01_21_091444) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_12_20_022901) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likers_count", default: 0
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -94,6 +95,29 @@ ActiveRecord::Schema.define(version: 2021_12_20_022901) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "tweet_id"
+    t.integer "tweet_comment_id"
+    t.integer "comment_id"
+    t.integer "item_id"
+    t.integer "message_id"
+    t.integer "room_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["item_id"], name: "index_notifications_on_item_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
+    t.index ["room_id"], name: "index_notifications_on_room_id"
+    t.index ["tweet_comment_id"], name: "index_notifications_on_tweet_comment_id"
+    t.index ["tweet_id"], name: "index_notifications_on_tweet_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -147,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_12_20_022901) do
     t.string "name"
     t.text "text"
     t.integer "shop_category_id"
+    t.integer "prefecture_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -168,6 +193,7 @@ ActiveRecord::Schema.define(version: 2021_12_20_022901) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likers_count", default: 0
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
@@ -180,13 +206,13 @@ ActiveRecord::Schema.define(version: 2021_12_20_022901) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.date "birthday", null: false
-    t.text "shop_name"
-    t.text "shop_text"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "followees_count", default: 0
+    t.integer "followers_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

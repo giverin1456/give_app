@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+
+<div class="follow">
+  <div class="follow_title">
+   <h1>フォローリスト</h1>
+  </div>
+
+  <%if @favorites.present?%>
+   <div class="follow_style">
+    <% @favorites.each do |favorite| %>
+    <div class="follow_list">
+      <%= link_to user_path(favorite) do%>
+
+     <div class="follow_content">
+     <% if favorite.image.present? %>
+      <%= image_tag(favorite.image,class:"follow_image")%>
+       <%else%>
+        <%= link_to image_tag("human", class:"follow_image"),user_path(current_user.id) %>
+        <%end%>
+       <div class="alea">
+        <div class="follow_text">
+         <div class= "follow_nickname">
+          <h5><%= favorite.nickname%></h5>
+         </div>
+         <% if favorite.shop.present?%>
+          <div class="follow_shop_text">
+           <%= favorite.shop.text.truncate(200)%>
+          </div>
+          <%end%>
+         <%end%>
+        </div>
+     </div>
+    </div>
+    <%end%>
+    <%else%>
+    <div class="not_item_favorite">
+      <%= link_to image_tag("follow",class:"not_favorite_image"),search_items_path %>
+       <p>フォローメンバーがいません...</p>
+    </div>
+    <%end%>
+</div>

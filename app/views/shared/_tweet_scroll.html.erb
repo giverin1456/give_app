@@ -1,0 +1,34 @@
+   <ul class="horizontal-list">
+    <% if @tweets.present? %>
+     <% @tweets.each do |tweet| %>
+      <li class="item">
+
+       <div class="item_tweet_list">
+        <div class="item_image_text">
+         <%= link_to image_tag(tweet.image, class:'item_tweet_image',id: 'message-image'),tweet_path(id: tweet.id) if tweet.image.attached?%>
+        </div>
+         <div class="item_tweet_user_informations">
+          <% if tweet.user.image.present? %>
+           <%= link_to image_tag(tweet.user.image, class:'item_tweet_user_image',id: 'message-image')%>
+          <%else%>
+           <%= link_to image_tag("human", class:"item_tweet_user_image"),user_path(tweet.user.id) %>
+          <%end%>
+           <%= link_to tweet.user.nickname, user_path(tweet.user.id), class: :item_tweet_user %>
+         </div>
+          <div class="index_tweet_text">
+           <%= tweet.text%>
+         </div>
+
+          <div class="index_tweet_time">
+            <%= link_to "詳しく見る",tweet_path(id: tweet.id)%>
+          </div>
+        <%end%>
+       </div>
+
+      </li>
+   </ul>
+     <%else%>
+      <h3 class='item-non'>商品が出品されていません。</h3>
+     <% end%>
+     </div>
+

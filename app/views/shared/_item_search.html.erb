@@ -1,0 +1,91 @@
+<div class="wrapper">
+  <div class="side-bar">
+
+    <div class="search_category">
+     <div class="search_items">
+
+       <%= search_form_for @p, url: search_items_path do |f| %>
+        <div class="search_item">
+         <%= f.label :name_cont, '商品名',class: :item_search_content %>
+         <br>
+         <%= f.text_field :name_cont, placeholder: '商品名',class: :item_form %>
+        </div>
+
+       <div class="search_item">
+        <%= f.label :category_id_eq, 'カテゴリー',class: :item_search_content %>
+        <%= f.collection_select(:category_id_eq, @item_category, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
+        <br>
+       </div>
+
+      <div class="search_item">
+       <%= f.label :status_id_eq, '商品の状態',class: :item_search_content %>
+       <%= f.collection_select(:status_id_eq, @item_status, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
+       <br>
+      </div>
+
+     <div class="search_item">
+      <%= f.label :delivery_charge_id_eq, '配送料',class: :item_search_content %>
+      <%= f.collection_select(:delivery_charge_id_eq, @item_delivery_charge, :id,:name, {include_blank: '指定なし'},class: :item_form)%>
+      <br>
+     </div>
+
+     <div class="search_item">
+       <%= f.label :day_id_eq, '発送日',class: :item_search_content %>
+       <%= f.collection_select(:day_id_eq, @item_day, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
+      <br>
+     </div>
+
+     <div class="search_item">
+       <%= f.label :price_gteq, '価格',class: :item_search_content%>
+       <br>
+       <%= f.number_field :price_gteq ,class: :search_form%>〜
+       <%= f.number_field :price_lteq, class: :search_form %>
+     </div>
+
+     <div class="item_submit">
+      <%= f.submit '検索',class:"search_submit" %>
+     </div>
+   </div>
+  </div>
+  <% end %>
+ </div>
+
+  <% if @results.length !=0 %>
+    <div class='item-contents'>
+      <ul class='item-lists'>
+       <% @results.each do |item| %>
+
+        <li class='list'>
+         <%= link_to item_path(id: item.id) do %>
+           <div class='item-img-content'>
+            <%= image_tag(item.image, class: "item-img") %>
+              <% if item.order != nil %>
+               <div class='sold-out'>
+                <%= image_tag("sold_out")%>
+               </div>
+              <% end%>
+           </div>
+       
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= item.name %>
+            </h3>
+             <div class='item-price'>
+              <span><%= item.price %>円<br><%= item.delivery_charge.name %></span>
+             </div>
+           </div>
+        </li>
+        
+       <%end%>
+       <%end%>
+     </ul>
+      <%else%>
+      <div class="not_search_item">
+       <h1>該当する商品はありません</h1>
+      </div>
+      
+     <% end %>
+    </div>
+</div>
+ <%= paginate @results%>
+ <%= render partial: "shared/second-footer" %> 

@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.create(comment_params)
-    # redirect_to "items/#{comment.item.id}"
+    @comment = Comment.new(comment_params)
+    @item = @comment.item
     if @comment.save
+      @item.create_notification_comment!(current_user, @comment.id, @item.id)
     redirect_to "/items/#{@comment.item.id}"
     else "items/show"
     end

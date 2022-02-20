@@ -1,0 +1,53 @@
+/* notifications/index */
+.sub-title{
+  text-align: center;
+  padding: 50px 0 50px 0;
+  margin: 0 auto;
+  border-bottom: solid 1px rgb(172, 172, 172);
+  width: 500px;
+}
+/* /notifications/index */
+
+
+.user-view{
+  margin: 20px auto;
+  padding: 10px;
+  border-bottom: solid 1px rgb(172, 172, 172);
+  width: 500px;
+}
+.moderate-font{
+  color: gray;
+  font-size: 12px;
+  text-align: end;
+}
+.qou{
+  margin: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.notifications{
+  color: green;
+}
+.user-thumb{
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 1px solid gray;
+}
+
+
+
+/* pagination */
+
+.pagination{
+  margin: 50px 0 0 0;
+  text-align: center;
+  color: gray;
+}
+.page{
+  border-radius: 50px;
+  padding: 10px;
+  width: 2px;
+  margin: 5px;
+}

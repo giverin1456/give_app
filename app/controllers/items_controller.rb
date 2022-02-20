@@ -1,16 +1,26 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :favorite]
   before_action :order_set, only: [:edit, :update, :destroy]
   before_action :search_product
+
   
   def index
     @items = Item.all.order("created_at DESC")
+    @tweets = Tweet.limit(10).order("created_at DESC")
+    @results = @p.result.order("created_at DESC")
+    set_item_column
+
+    @results = @items.page(params[:page]).per(16)
   end
 
   def new
+    if current_user.shop.present?
     @item = Item.new
+    else
+      redirect_to new_shop_path(current_user)
+    end
   end
 
   def create
@@ -28,9 +38,6 @@ class ItemsController < ApplicationController
     @user = @item.user
     @items = @user.items
     @shop = @user.shop
-  end
-
-  def edit
   end
   
   def update
@@ -51,23 +58,16 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.all
-    @results = @p.result.order("created_at DESC")
+    @results = @p.result.page(params[:page]).per(16).order("created_at DESC")
     set_item_column
-  end
 
-  def category
-    # @items = Item.all
-    # @item = Item.find(params[:id])
   end
 
   def favorite
-    @item = Item.find(params[:id])
     current_user.toggle_like!(@item)
-    # now「いいね」の状態を逆にする
-    redirect_to item_url @item
-    # redirect_toはこのままであってる?
+    @item.create_notification_like!(current_user)
+    redirect_to request.referer
   end
-
 
 
   private

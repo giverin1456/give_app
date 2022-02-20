@@ -1,12 +1,20 @@
 <%= render partial: 'shared/header'%>
-<div class= "tweet_preview">
- <div id="image-list"></div>
-</div>
-<%= form_with(model: @tweet, local: true) do |form| %>
-   <div class="tweet_all">
-      <%# <div class="tweetter", id="image-list"></div> %>
+
+<div class="new_tweet">
+ <div class="new_tweet-image">
+  <div class= "tweet_preview">
+   <div id="image-list"></div>
+  </div>
+ </div>
+
+  <%= form_with(model: @tweet, local: true) do |form| %>
+  <%= render 'shared/error_messages', model: form.object %>
+   <div class="tweet_new-text">
+    <div class="tweet_all">
       <%= form.file_field :image, class:"tweet_images" ,id:'message_image'%>
-      <%= form.text_area :text, class:"tweet_text"%>
-      <%= form.submit "投稿する",class:"tweet_submit" %>
+      <%= form.text_area :text, class:"tweet_text", placeholder:"STORY（必須 150文字まで)", maxlength:"150"%>
+      <%= form.submit "投稿",class:"tweet_submit" %>
     </div>
-<% end %>
+   </div>
+  <%end%>
+</div> 

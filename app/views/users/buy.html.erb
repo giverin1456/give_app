@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+
+<div class="account">
+ <div class="account_title">購入したITEM
+ </div>
+  <%if @favorites.present?%>
+ <div class="account_list">
+  <% @item.each do |i|%>
+   <div class="account_infomation">
+     <%# <%= link_to item_path(i) do%> 
+     <div class="account_content">
+      <div class="account_image_content">
+        <%= image_tag (i.item.image),class:"account_image"%>
+      </div>
+      <div class="account_item">
+       <div class="account_name">
+        <%= i.item.name%>
+       </div>
+
+       <div class="account_price">
+        ¥<%= i.item.price%>
+       </div>
+
+        <div class="account_time">
+         <%= i.item.updated_at.strftime('%Y/%m/%d')%>
+        </div>
+      </div>
+     </div>
+   </div>
+      <%# <%end%> 
+    <%end%>
+    <%else%>
+    <div class="not_item_favorite">
+     <%= link_to image_tag("shopping",class:"not_favorite_image"),search_items_path %>
+      <p>購入済みの商品がありません...</p>
+    </div>
+    <%end%>
+ </div>
+</div>

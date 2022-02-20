@@ -1,0 +1,68 @@
+<%= render "shared/header" %>
+<div class="main">
+ <div class="shop">
+  <div class="shop_search">
+  <%#shop検索side_bar%>
+   <div class="shop_left_bar">
+    <div class="search_title">SHOP検索</div>
+     <div class="search_content">
+      <%= search_form_for @q, url: search_shops_path, html: {id: "detailed-search-form"} do |f| %>
+       <div class="search_shop_name"> 
+        <%= f.label :name_cont, 'SHOP名',class: :shop_search_name %>
+        <%= f.text_field :name_cont, placeholder: 'SHOP名',class: :shop_search_form %>
+       </div>
+         <div class="search_shop_category">
+          <%= f.label :category_id_eq, 'カテゴリー',class: :shop_search_category %>
+          <%= f.collection_select(:shop_category_id_eq, ShopCategory.all, :id, :name, {include_blank: "指定なし"},class: :shop_category_form) %>
+         </div>
+           <div class="shop_submit_btn">
+            <%= f.submit '検索',class: :shop_search_submit %>
+           </div>
+       <%end%>
+     </div>
+    </div>
+   </div>
+   <%# /shop検索side_bar%>
+
+    <%#shop検索結果%>
+    <%if @shops.present?%>
+     <div class="shop_main">
+      <% @shops.each do |shop|%>
+       <div class="shop_content">
+        <%= link_to user_path(shop.user.id) do%>
+         <div class="shop_list">
+          <%= image_tag(shop.image,class:"shop_image")%>
+           <% if shop.user.image.present?%>
+           <div class="shop_image_name">
+            <%= image_tag shop.user.image, class:'tweet_default'%>
+            <%else%>
+             <%= link_to image_tag("human", class:"tweet_default"),user_path(shop.user_id) %>
+            <%end%>
+             <%= shop.user.nickname%>
+           </div>
+            <div class="shop_name">
+             <%= shop.name%>
+            </div>
+
+             <div class="shop_category">
+              <%= shop.shop_category.name%>
+             </div>
+
+             <div class="shop_text">
+              <%= shop.text%>
+             </div>
+    
+          </div>
+        </div>
+       <%end%>
+       <%end%>
+       <%else%>
+       <div class="not_tweet_favorite">
+        <%= link_to image_tag("tweet",class:"not_favorite_image"),search_tweets_path %>
+        <p>検索したSHOPはありません...</p>
+      </div>
+      <%end%>
+  </div>
+</div>
+</div>
+<%= render partial: "shared/second-footer" %> 

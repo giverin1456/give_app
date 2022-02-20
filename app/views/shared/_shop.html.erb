@@ -1,6 +1,56 @@
-<%= form_with(model: @shop, local: true) do |f| %>
-<%= f.text_area :name, class:"shop", id:"shop-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-<%= f.text_area :text, class:"shop", id:"shop-text", placeholder:"1000文字まで" ,rows:"7" ,maxlength:"1000" %>
-<%= f.collection_select(:shop_category_id, ShopCategory.all, :id, :name, {}, {class:"shop", id:"shop_category"}) %>
-<%= f.submit "投稿する" ,class:"btn" %>
-<%end%>
+<%= render "shared/header" %>
+<div class= "shop_create">
+  <%= form_with(model: @shop, local: true) do |f| %>
+  <h2 class="items-sell-title">SHOP情報を入力</h2>
+  <%= render 'shared/error_messages', model: f.object %>
+   <div class="form-group">
+     <div class='form-text-wrap'>
+      <label class="form-text">SHOPイメージ</label>
+       <span class="indispensable">必須</span>
+        <div class="shop_image_list">
+         <div id="image-list"></div>
+        </div>
+          <%= f.file_field :image, id:"message_image" %>
+       </div>
+     </div>
+
+     <div class="form-group">
+       <div class='form-text-wrap'>
+        <label class="form-text">SHOP名</label>
+        <span class="indispensable">必須</span>
+       </div>
+       <%= f.text_area :name, id:"shop-name", placeholder:"SHOP名（必須 18文字まで)", maxlength:"18" %>
+     </div>
+
+      <div class="form-group">
+       <div class='form-text-wrap'>
+        <label class="form-text">SHOPストーリー</label>
+         <span class="indispensable">必須</span>
+       </div>
+        <%= f.text_area :text, id:"shop-text", placeholder:"SHOPストーリー (必須 1000文字まで)" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+
+      <div class="form-group">
+       <div class='form-text-wrap'>
+        <label class="form-text">出品カテゴリー</label>
+         <span class="indispensable">必須</span>
+       </div>
+        <%= f.collection_select(:shop_category_id, ShopCategory.all, :id, :name, {}, {class:"shop_select_box", id:"shop_category"}) %>
+      </div>
+
+      <div class="form-group">
+       <div class='form-text-wrap'>
+        <label class="form-text">都道府県</label>
+         <span class="indispensable">必須</span>
+       </div>
+         <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop_select_box", id:"item-prefecture"}) %>
+       </div>
+
+
+    <div class='shops-btn'>
+      <%= f.submit "SHOP" ,class:"shop-btn" %>
+    </div>
+    <%end%>
+   </div>
+
+<%= render partial: "shared/second-footer"%>

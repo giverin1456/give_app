@@ -1,0 +1,21 @@
+<% visitor=notification.visitor %>
+<% post=notification.visited %>
+
+<div class="user-view clearfix ">
+<div class="notifications_content">
+  <%= link_to user_path(notification.visitor) do %>
+  <% if notification.visitor.image.present? %>
+    <%= image_tag notification.visitor.image, class:"user-thumb"%>
+    <%else%>
+      <%= link_to image_tag("human", class:"user-thumb"),user_path(current_user.id) %>
+    <%end%>
+  <% end %>
+
+  <%== notification_form(notification) %>
+  <div class="moderate-font"><%= " #{time_ago_in_words(notification.created_at)}前" %></div>
+
+  <% if !@comment.nil? %>
+    <p class="moderate-font"><%= @comment %></p>
+  <% end %>
+  </div>
+</div>

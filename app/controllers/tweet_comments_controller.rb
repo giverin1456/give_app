@@ -1,7 +1,13 @@
 class TweetCommentsController < ApplicationController
   def create
-    @comment = TweetComment.create(tweet_comment_params)
-    redirect_to "/tweets/#{@comment.tweet.id}"
+    @comment = TweetComment.new(tweet_comment_params)
+    @tweet = @comment.tweet
+    if @comment.save
+     @tweet.create_notification_comment!(current_user, @comment.id)
+     redirect_to "/tweets/#{@comment.tweet.id}"
+    else
+      render 'tweet/show'
+    end
   end
 
   private

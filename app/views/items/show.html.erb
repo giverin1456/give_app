@@ -1,24 +1,22 @@
 <%= render "shared/header" %>
 
 
-
-<%# 商品の概要 %>
+<div class="main">
+<%# 商品画像 %>
 <div class="item-show">
   <div class="item-box">
-
   <div class="left-image">
     <div class="item-image-content">
       <%= image_tag @item.image ,class:"item-box-image" %>
       <% if @item.order != nil%>
       <div class="sold-out">
-        <span>Sold Out!!</span>
+        <%= image_tag("sold_out")%>
       </div>
       <% end %>
      </div>
     </div>
 
-
-
+    <%# 商品説明 %>
     <div class="right-item">
      <h2 class="name"><%= @item.name %></h2>
       <div class="item-price-box">
@@ -28,18 +26,32 @@
 
     <% if user_signed_in? && @item.order == nil %>
      <% if current_user.id == @item.user_id %>
-       <%= link_to "編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
-       <%# <p class="or-text">or</p> %>
-       <%= link_to "削除", item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"},class:"item-destroy" %>
-     <% else %>
-       <%= link_to "購入画面に進む", item_orders_path(@item.id), method: :get,class:"item-red-btn"%>
-     <% end %>
-    <% end %>
-    <%= link_to favorite_item_path, class: "stars" do %>
-    <i class="fa fa-heart"></i><%= current_user.likes?(@item) ? "お気に入り解除" : "お気に入り" %>
-    <%end%>
+        <%= link_to image_tag("edit", class: "item-edit-btn"), edit_item_path(@item.id), method: :get %>
+        <%= link_to image_tag("destroy",class:"item-destroy"), item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"} %>
+       <% else %>
+       <%= link_to "購入画面に進む", item_orders_path(@item.id), method: :get,class:"item-buy-btn"%>
+       <% end %>
+      <% end %>
 
+      <%# like/like数 %>
+      <div class="likesss">
+      <div classs="item_like_ask">
+      <% if user_signed_in? %>
+        <%= link_to favorite_item_path do %>
+        <% if current_user.likes?(@item)%>
+          <%= image_tag("redheart",class:"heart")%>
+          <%= @item.likers_count%>
+         
+        <%else%>
+          <%= image_tag("blackheart",class:"heart")%>
+          <%= @item.likers_count%>
+        <%end%>
+        <%end%>
+        </div>
+       </div>
+       <%end%>
 
+       <%# 商品の情報 %>
     <table class="detail-table">
       <tbody>
         <tr>
@@ -72,60 +84,55 @@
         </tr>
       </tbody>
     </table>
+    
      <div class="item-explain-box">
-      <span><%= @item.text %></span>
+      <%= @item.text %>
     </div>
-    </div>
 
 
-    </div>
-  </div>
-  <%# /商品の概要 %>
-
-
-
-
-
-
-
-
-  <%# コメント %>
-    <div class="comments">
-     <h4 class="comment-title">コメント一覧</h4>
+      <%# コメント %>
+    <div class="comment_title">コメント</div>
      <% @comments.each do |comment| %>
-     <div class="comment-content">
-       <div class="comment-name">
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+     <div class="comments">
+      <div class="comment-content">
+       <div class="tweet_comment_nickname_image">
+        <%= image_tag comment.user.image, class:'item_comment_user_image',id: 'message-image'%>
+         <div class="comment-name">
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+         </div>
        </div>
        <div class="comment_text">
         <%= comment.text %>
-        <%#= image_tag @user.image, class: 'user-image', id: 'message_image' %>
+         <div class="show_tweet_time">
+        <%= " #{time_ago_in_words(comment.created_at)}前" %>
        </div>
       </div>
-    
+     </div>
+    </div>
     <% end %>
 
-<div class="comment-box">
-  <% if @item.order == nil %>
-   <% if user_signed_in? %>
+   <div class="comment-box"> 
+    <% if @item.order == nil %>
+     <% if user_signed_in? %>
      <%= form_with(model: [@item, @comment], local:true) do |t|%>
-       <%= t.text_area :text, class: "comment-form", placeholder: "コメントする", rows: "2" %>
+       <%= t.text_area :text, class: "comment-form", placeholder: "コメント", maxlength:"140" %>
         <p class="comment-warn">
         相手のことを考えたコメントを心がけましょう。</p>
         <%= t.submit "コメントする", class: :comment_btn %>
        </div>
       <% end %>
      <% else %>
-       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+       <strong><p>コメントの投稿には新規登録/ログインが必要です</p>
        </strong>
     <% end %>
-   <% end %>
+    <%end%>
    </div>
    </div>
-
-  <%# /コメント %>
+    </div>
+        <div class="show_item_shop"><%= @user.shop.name%> ITEM
+  </div>
   <%= render partial: 'items/item' %>
-  <%# <%= link_to "#{@item.category.name}をもっと見る" ,category_items_path(@item), class:"another-item"%>
-
+    </div>
+</div>
 
 <%= render "shared/second-footer" %>

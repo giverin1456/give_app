@@ -21,7 +21,7 @@
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"18" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -93,35 +93,6 @@
     </div>
     <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   </div>
-
-  <div class="form-group">
-     <div class='form-text-wrap'>
-       <label class="form-text">SHOP名</label>
-       <span class="indispensable">後でもOK</span>
-     </div>
-    <div class='input-name-wrap'>
-      <%= f.text_area :shop_name, class:"input-name", id:"shop_name", placeholder:"例) 山田" %>
-    </div>
-  </div>
-
-
-   <div class="form-group">
-     <div class='form-text-wrap'>
-       <label class="form-text">SHOPストーリー</label>
-       <span class="indispensable">後でもOK</span>
-      </div>
-     <div class='input-name-wrap'>
-       <%= f.text_area :shop_text, class:"shop_story", id:"shop_text", placeholder:"例) 山田" %>
-     </div>
-   </div>
-
-   <div class="form-group">
-    <h2 class='form-bottom-text'>
-      「会員登録」のボタンを押すことにより、
-      <span>利用規約</span>
-       <br>に同意したものとみなします
-     </h2>
-    </div>
    <div class='register-btn'>
      <%= f.submit "会員登録" ,class:"register-red-btn" %>
    </div>

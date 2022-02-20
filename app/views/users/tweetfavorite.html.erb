@@ -1,0 +1,98 @@
+<%= render "shared/header" %>
+
+<div class="main">
+<div class="twitter">
+ <div class="tweet_side">
+
+   <div class="side_text">
+    <div class="tweet_favorite_title">お気に入り</div>
+      <%= link_to root_path do%>
+       <div class="tweet_side_image">
+         <%= image_tag("home",class:"tweet_home")%>
+           <div class="side_tag">HOME</div>
+       </div>
+       <%end%>
+
+       <%= link_to search_tweets_path do%>
+       <div class="tweet_side_image">
+        <%= image_tag("star",class:"tweet_home")%>
+         <div class="side_tag">STORY一覧</div>
+       </div>
+       <%end%>
+
+      <%= link_to root_path do%>
+       <div class="tweet_side_image">
+        <%= image_tag("top",class:"tweet_home")%>
+         <div class="side_tag">TOPへ戻る</div>
+       </div>
+      <%end%>
+
+     <%= link_to new_tweet_path do%>
+      <div class="tweet_side_image">
+       <%= image_tag("tweets",class:"tweet_home")%>
+        <div class="side_tag">投稿</div>
+      </div>
+      <%end%>
+     </div>
+  </div>
+
+  <%if @favorites.present?%>
+   <div class="tweet_main">
+     <% @favorites.each do |favorite| %>
+      <div class="tweet_list">
+        <div class="tweet_user_information">
+          <% if favorite.user.image.present? %>
+           <%= link_to image_tag(favorite.user.image, class:'tweet_default')%>
+          <%else%>
+            <%= link_to image_tag("human", class:"tweet_default"),user_path(current_user.id) %>
+          <%end%>
+            <%= link_to favorite.user.nickname, user_path(favorite.user.id), class: :tweet_user %>
+             <div class="tweet_time">
+              <%= favorite.updated_at.strftime('%Y/%m/%d %H:%M') %>
+             </div>
+        </div>
+        <%= link_to(tweet_path(id: favorite.id)) do%>
+         <div class="image_text">
+          <%= image_tag favorite.image, class:'tweet_image',id: 'message-image' if favorite.image.attached?%>
+            
+           <div class="like_comment">
+             <%= link_to favorite_tweet_path(favorite) do %>
+              <% if current_user.likes?(favorite)%>
+               <div class="tweet_like">
+               <%= image_tag("redlike",class:"tweet_btn")%>
+               <%=favorite.likers_count%>
+              </div>
+             <%else%>
+             <div class="tweet_like">
+              <%= image_tag("like",class:"tweet_btn")%>
+              <%=favorite.likers_count%>
+             </div>
+             <%end%>
+            <%end%>
+            <div class="tweet_like">
+             <%= link_to image_tag("comment", class:"tweet_btn"),tweet_path(id: favorite.id)%>
+            </div>
+          </div>
+           <div class="tweet-wrap">
+            <input class="tweet-trigger" type="checkbox">
+            <label class="tweet-btn" ></label>
+          <div class="tweet-item"><%= favorite.text%></div>
+        </div>
+      </div>
+    </div>
+   <%end%>
+   <%end%>
+  </div>
+  <%else%>
+  <div class="not_tweet_favorite">
+    <%= link_to image_tag("tweets",class:"not_favorite_image"),search_tweets_path %>
+     <p>お気に入りにSTORYがありません...</p>
+  </div>
+   <%end%>
+</div>
+</div>
+
+
+
+<%# <%= render "shared/second-footer" %> 
+

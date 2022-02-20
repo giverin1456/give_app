@@ -1,68 +1,108 @@
 <%= render "shared/header" %>
 
-<div class="one_image">
-    <%= image_tag @tweet.image, class: 'message-image' if @tweet.image.attached?%>
-    </div>
-<div class="one_tweet">
-    <%= @tweet.text %>
-    </div>
-    <span class="name">
-    <div class="one_user">
-        <span>投稿者：</span><%= @tweet.user.nickname %>
-    </div>
-
-    <div class="one_more">
-        <ul class="one_more_list">
-          <li>
-            <%= link_to '編集', edit_tweet_path(@tweet.id), method: :get,class: :one_edit %>
-          </li>
-          <li>
-            <%= link_to '削除', tweet_path(@tweet.id), method: :delete,data: {confirm: "削除しますか？"},class: :one_delete %>
-          </li>
-        </ul>
-      </div>
-      </a>
-    </span>
-
-
-<%# comment ---------%>
-
-<div class="comments">
-     <h4>＜コメント一覧＞</h4>
-     <% @comments.each do |comment| %>
-     <div class="comment-content">
-       <div class="comment-name">
-        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
-       </div>
-       <div class="comment_text">
-        <%= comment.text %>
-        <%#= image_tag @user.image, class: 'user-image', id: 'message_image' %>
+<div class="main">
+<div class="tweet_show_main">
+ <div class="tweet_show">
+   <div class="tweet_left">
+    <div class="tweet_show_list">
+      <div class="show_image_text">
+        <%= image_tag @tweet.image, class:'tweet_show_image',id: 'message-image' if @tweet.image.attached?%>
+         <% if user_signed_in? %>
+           <div class="show_like_comment">
+              <%= link_to favorite_tweet_path do %>
+              <% if current_user.likes?(@tweet)%>
+              <div class="tweet_like">
+               <%= image_tag("redlike",class:"tweet_btn")%>
+               <%=@tweet.likers_count%>
+              </div>
+               <%else%>
+                <div class="tweet_like">
+                 <%= image_tag("like",class:"tweet_btn")%>
+                 <%=@tweet.likers_count%>
+                </div>
+              <%end%>
+             <%end%>
+            <%end%>
+          </div>
+        <div class="tweet_show_text">
+         <%= @tweet.text%>
+        </div>
+         <div class="tweet_show_time">
+          <%= @tweet.updated_at.strftime('%Y/%m/%d %H:%M') %>
+         </div>
        </div>
       </div>
      </div>
-    <% end %>
 
-<div class="comment-box">
-   <% if user_signed_in? %>
-     <%= form_with(model: [@tweet, @comment], local:true) do |t|%>
-       <%= t.text_area :text, class: "comment-form", placeholder: "コメントする", rows: "2" %>
-        <%# </div> %>
-        <p class="comment-warn">
-        相手のことを考えたコメントを心がけましょう。</p>
-        <%= t.submit "コメントする", class: :comment_btn %>
+    <%# comment ---------%>
+   <div class="comment_right">
+    <div class="tweet_sticky">
+      <div class="tweet_show_user_information">
+         <% if @tweet.user.image.present? %>
+         <%= image_tag @tweet.user.image, class:'tweet_show_default',id: 'message-image'%>
+         <%= link_to @tweet.user.nickname, user_path(@tweet.user.id), class: :tweet_show_user %>
+         <%else%>
+         <%= link_to image_tag("human", class:"tweet_show_default"),user_path(current_user.id) %>
+         <%= link_to @tweet.user.nickname, user_path(@tweet.user.id), class: :tweet_show_user %>
+         <%end%>
+          <div class="one_more">
+           <ul class="one_more_list">
+            <% if @tweet.user_id == current_user.id%>
+             <li>
+              <%= link_to image_tag("edit", class: :one_edit), edit_tweet_path(@tweet.id), method: :get %>
+            </li>
+            <li>
+             <%= link_to image_tag("destroy",class: :one_delete ), tweet_path(@tweet.id), method: :delete,data: {confirm: "削除しますか？"}%>
+            </li>
+           </ul>
+           <%end%>
+          </div>
        </div>
-       <% end %>
-     <% else %>
-       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
-       </strong>
-   <% end %>
+
+    <div class="tatata">
+      <% @comments.each do |comment| %>
+       <div class="comments">
+        <div class="comment-content">
+         <div class="tweet_comment_nickname_image">
+         <% if comment.user.image.present? %>
+          <%= image_tag comment.user.image, class:'tweet_default',id: 'message-image'%>
+          <%else%>
+         <%= link_to image_tag("human", class:"tweet_default"),user_path(current_user.id) %>
+         <%end%>
+           <div class="comment-name">
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
+           </div>
+         </div>
+       <div class="comment_text">
+        <%= comment.text %>
+         <div class="show_tweet_time">
+          <%= " #{time_ago_in_words(comment.created_at)}前" %>
+         </div>
+       </div>
+
+     </div>
+    </div>
+    <% end %>
+   </div>
+
+    <div class="comment-box">
+      <% if user_signed_in? %>
+      <%= form_with(model: [@tweet, @comment], local:true) do |t|%>
+      <%= t.text_area :text, class: "comment-form", placeholder: "コメントする", rows: "2" %>
+       <p class="comment-warn">相手のことを考えたコメントを心がけましょう。</p>
+      <%= t.submit "コメント", class: :comment_btn %>
+    </div>
+    
+      <% end %>
+      <% else %>
+       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+      <% end %>
+     </div>
+    </div>
+   </div>
+</div>
+</div>
 
   <%# /コメント %>
 
-
-
-
-
-
-  <%# <%= link_to "トップページに戻る", root_path%>
- <%= render partial: "shared/second-footer" %> 
+ <%# <%= render partial: "shared/second-footer" %> 

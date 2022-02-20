@@ -1,38 +1,107 @@
-<div class="left-button">
-  <%= link_to "ユーザー一覧に戻る", "/users/index",class:"edit-link" %>
-</div>
-<h4 class="rooms-title">気になる同士</h4>
-<% @entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-    <%# <%= image_tag e.user.avatar, class:"user-image" %>
-      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>さん
-      </a>
-  </strong>
-  </div>
-<% end %>
-<hr>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |m| %>
-        <div class="chat-box">
-          <div class="chat-face">
-            <%#= image_tag m.user.avatar, class:"user-image" %>
-          </div>
-          <div class="chat-hukidashi"> <strong><%= m.content %></strong> <br>
-            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </div>
+<%= render partial: 'shared/header'%>
+
+
+<div class="chat_room">
+ <div class="room_user">
+
+   <%# side_bar %>
+    <div class="soll2">
+     <div class="tadfd">
+         <% @entries.each do |e| %>
+         <div class="message_user_list">
+         <% if e.user.image.present? %>
+          <%= image_tag (e.user.image),class:"message_user"%>
+          <%else%>
+         <%= link_to image_tag("human", class:"message_user"),user_path(current_user.id) %>
+         <%end%>
+          <%= e.user.nickname%>
+         <% end %>
+       </div>
+      </div>
+     </div>
+
+    <div class="soll">
+      <div class="room_user_images">
+        <% @fort.each do |f|%>
+        <div class="room_user_image">
+        <% if f.user.image.present? %>
+          <%= image_tag (f.user.image),class:"room_user_content"%>
+          <%else%>
+         <%= link_to image_tag("human", class:"room_user_content"),user_path(current_user.id) %>
+         <%end%>
+         </div>
+        <%end%>
+      </div>
+
+     <div class="room_chat_name">
+       <% @roomNickname.each do |t| %>
+        <div class="chat_nickname_content">
+          <a href="/rooms/<%= t.room_id %>" class="chat_nickname"><%=t.nickname%></a>
         </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+       <%end%>
+     </div>
+    </div>
+   </div>
+
+   <%# /side_bar %>
+   <%# message_form部分 %>
+    <div class="main_chat">
+      <div class="posts">
+       <div class="form-submit">
+        <%= form_for @message do |f| %>
+        <%= f.text_field :text, placeholder: "メッセージを入力" , size: 70, class:"form-text-field" %>
         <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿",class: 'form-submit'%>
-    <% end %>
+        <%= image_submit_tag("submit", class: 'message_icon') %>
+       </div>
+      <%end%>
+     </div>
+
+     <%# トーク部分 %>
+    <div class="chats">
+      <% if @messages.present? %>
+       <% @messages.each do |m| %>
+        <% if m.user_id  == current_user.id%>
+        <%# current_userの場合→右 %>
+         <div class="lost_right">
+           <div class="current_chat_box">
+             <div class="current_chat_text">
+              <%= m.text %>
+             </div>
+             <div class="current_chat_time">
+               <%= "#{time_ago_in_words(m.created_at)}前"%>
+            </div>
+        </div>
+       </div>
+       <%#  /current_userの場合→右 %>
+           
+       <%else%>
+       <%# 他userの場合→左 %>
+       <div class="lost_left">
+       <div class= chat-contents>
+       <% if m.user.image.present? %>
+           <%= image_tag m.user.image, class: "chat_user_image"%>
+           <%else%>
+         <%= link_to image_tag("human", class:"chat_user_image"),user_path(current_user.id) %>
+         <%end%>
+           <div class="chat_information">
+             <div class="chat_user_nickname">
+               <%= m.user.nickname%>
+             </div>
+             <div class="chat-box">
+              <div class="chat-text">
+               <%= m.text %>
+              </div>
+              <div class="chat_time">
+               <%= "#{time_ago_in_words(m.created_at)}前"%>
+              </div>
+             </div>
+            </div>
+           </div>
+        </div>
+        <%end%>
+        <%end%>
+        <%end%>
+      </div>
+
   </div>
-</div>
+ </div>

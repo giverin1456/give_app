@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        first_name: 名前
+        last_name: 苗字
+        first_kana: 名前(カタカナ)
+        last_kana: 苗字(カタカナ)
+        birthday: 誕生日
+      item:
+        name: 商品名
+        text: 商品の説明
+        image: 画像
+        price: 価格
+        prefecture_id: 発送する地域
+        category_id: カテゴリー
+        status_id: 商品の状態
+        delivery_charge_id: 配送料
+        day_id: 配送日
+      tweet:
+        text: テキスト
+        image: 画像
+      shop:
+        image: SHOPイメージ
+        text: SHOPストーリー
+        name: SHOP名
+        shop_category_id: 出品カテゴリー
+        prefecture_id: 都道府県

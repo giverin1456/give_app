@@ -1,0 +1,40 @@
+.account_title{
+  margin: 50px auto;
+  text-align: center;
+  font-size: 20px;
+}
+.account_sum{
+  margin: 40px auto;
+  text-align: center;
+  border: solid 1px rgb(158, 158, 158);
+  padding: 30px;
+  width: 300px;
+  background-color: rgb(253, 216, 147);
+}
+.account_image{
+  width: 90px;
+  height: 90px;
+}
+.account_content{
+  margin: 20px auto;
+  padding: 10px;
+  width: 500px;
+  display: flex;
+  border-bottom: solid 1px rgb(158, 158, 158);
+}
+.account_item{
+  width: 400px;
+}
+.account_name{
+  margin: 5px 0 0 20px;
+}
+.account_price{
+  margin: 5px 0 0 20px;
+  color: gray;
+  font-size: 14px;
+}
+.account_time{
+  font-size: 12px;
+  text-align: end;
+  margin-top: 15px;
+}

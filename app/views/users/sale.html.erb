@@ -1,0 +1,45 @@
+ <%= render "shared/header" %>
+
+<div class="account">
+  <div class="account_title">売り上げ利益</div>
+    <div class="account_sum">利益合計
+      ¥<%= (@item.sum(:price) * 0.9).floor%>
+    </div>
+     <%if @item.present?%>
+       <div class="account_list">
+         <% @item.each do |i|%>
+    
+           <div class="account_infomation">
+            <%= link_to item_path(i) do%>
+    
+             <div class="account_content">
+               <div class="account_image_content">
+                 <%= image_tag (i.image),class:"account_image"%>
+               </div>
+
+               <div class="account_item">
+                 <div class="account_name">
+                   <%= i.name%>
+                 </div>
+
+                 <div class="account_price">
+                   ¥<%= (i.price * 0.9).floor%>
+                 </div>
+
+                   <div class="account_time">
+                    <%= i.updated_at.strftime('%Y/%m/%d')%>
+                   </div>
+               </div>
+             </div>
+        </div>
+        <%end%>
+        <%end%>
+        <%else%>
+        <div class="not_item_favorite">
+         <%= image_tag "money",class:"not_favorite_image" %>
+           <p>売却済みの商品がありません...</p>
+        </div>
+        <%end%>
+  </div>
+</div>
+
