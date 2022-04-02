@@ -13,26 +13,26 @@
 
        <div class="search_item">
         <%= f.label :category_id_eq, 'カテゴリー',class: :item_search_content %>
-        <%= f.collection_select(:category_id_eq, @item_category, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
         <br>
+        <%= f.collection_select(:category_id_eq, @item_category, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
        </div>
 
       <div class="search_item">
        <%= f.label :status_id_eq, '商品の状態',class: :item_search_content %>
-       <%= f.collection_select(:status_id_eq, @item_status, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
        <br>
+       <%= f.collection_select(:status_id_eq, @item_status, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
       </div>
 
      <div class="search_item">
       <%= f.label :delivery_charge_id_eq, '配送料',class: :item_search_content %>
-      <%= f.collection_select(:delivery_charge_id_eq, @item_delivery_charge, :id,:name, {include_blank: '指定なし'},class: :item_form)%>
       <br>
+      <%= f.collection_select(:delivery_charge_id_eq, @item_delivery_charge, :id,:name, {include_blank: '指定なし'},class: :item_form)%>
      </div>
 
      <div class="search_item">
        <%= f.label :day_id_eq, '発送日',class: :item_search_content %>
+       <br>
        <%= f.collection_select(:day_id_eq, @item_day, :id, :name, {include_blank: '指定なし'},class: :item_form)%>
-      <br>
      </div>
 
      <div class="search_item">

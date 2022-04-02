@@ -2,7 +2,7 @@
 <header class='top-page-header'>
   <div class='top-header'>
    <div class='search-bar-contents'>
-    <%= link_to image_tag("give_icon", class:"give-icon"), "root_path" %>
+    <%= link_to image_tag("give_icon", class:"give-icon"), root_path %>
    </div>
 
     <div class='nav'>
@@ -26,8 +26,8 @@
          <%= link_to image_tag("human", class:"header_user_icon"),user_path(current_user.id) %>
        <%end%>
        <%else%>
-        <li><%= link_to 'LOGIN', new_user_session_path, class: "header-content" %></li>
-        <li><%= link_to 'SIGNUP', new_user_registration_path, class: "header-content" %></li>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "header-content" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "header-content" %></li>
      </ul>
       <% end %>
     </div>

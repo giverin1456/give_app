@@ -94,7 +94,7 @@
 }
 .tweet_user{
   margin: 0 0 0 7px ;
-  width: 50%;
+  width: 55%;
   font-size: 15px;
 }
 .tweet_time{
@@ -105,7 +105,7 @@
 }
 .tweet_image{
   width:100vh;
-  height:50vh;
+  /* height:50vh; */
   bottom: 50px;
   object-fit: contain;
 }
@@ -114,7 +114,7 @@
 /* like */
 .like_comment{
   justify-content: center;
-  margin: 15px 0;
+  margin: 5px 0;
   display: flex;
 }
 .tweet_btn{
@@ -132,7 +132,7 @@
 }
 .tweet-trigger{
   position: relative;
-  bottom: 7px;
+  bottom: 13px;
   left: 480px;
   color: gray;
 }
@@ -141,14 +141,14 @@
   padding: 5px 8px;
   margin: 0 0 0 400px;
   position: relative;
-  bottom: 10px;
+  bottom: 16px;
   left: 70px;
   color: gray;
 }
 .tweet-item {
   position: relative;
   overflow: hidden;
-  height: 80px; 
+  height: 55px; 
   font-size: 15px;
   margin: 0 auto 15px;
   width: 80%;
@@ -213,22 +213,20 @@
   border: 1px solid rgb(209, 209, 209);
   background-color: #fff1d6;
   margin: 10px auto;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
   width: 500px;
   position: sticky;
-  top: 90px;
+  top: 140px;
 }
 .show_like_comment{
   justify-content: center;
-  /* margin: 15px 0 50px 0; */
+  margin: 5px 0;
   display: flex;
 }
 .tweet_show_image{
   width:100vh;
-  height:50vh;
   bottom: 50px;
   object-fit: contain;
-  margin-top: 15px;
 }
 .tweet_show_default{
   width: 40px;
@@ -245,7 +243,7 @@
   position: relative;
   overflow: hidden;
   font-size: 15px;
-  margin: 15px auto;
+  margin: 0 auto;
   width: 80%;
   white-space: pre-line;
   word-wrap: break-word;
