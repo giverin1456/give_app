@@ -22,7 +22,7 @@
 }
 .item-box-image {
   height: 500px;
-  width: 500px;
+  width: 100%;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
 }

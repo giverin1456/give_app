@@ -52,8 +52,9 @@
   justify-content: center;
 }
 .item-lists>.list {
-  width: 28vh;
+  width: 30vw;
   padding: 0 20px 40px 20px;
+  max-width: 200px;
 }
 .item-img-content {
   position: relative;
@@ -61,8 +62,9 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .5);
 }
 .item-img {
-  width: 28vw;
-  height: 19vh;
+  /* width: 28vw; */
+  height: 18vw;
+  max-height: 180px;
   border: 1px solid rgb(208, 208, 208);
 }
 .item-img:hover{
@@ -91,7 +93,7 @@
   letter-spacing: 0.1em;
 }
 .item-price {
-  font-size: 1.5vh;
+  font-size: 1vw;
   display: flex;
   justify-content: space-between;
   color: rgb(128, 128, 128);
