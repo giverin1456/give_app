@@ -35,9 +35,6 @@ https://give-app1456.herokuapp.com/
 
 # DEMO
 ## トップページ
-
-[![Image from Gyazo](https://i.gyazo.com/e12996614a66a34c03f236c97fe24fdd.gif)](https://gyazo.com/e12996614a66a34c03f236c97fe24fdd)
-
 ## 新規登録、ログイン画面
 ## 商品出品ページ
 ## 商品詳細ページ
