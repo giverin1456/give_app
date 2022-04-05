@@ -63,11 +63,12 @@
 }
 .item-img {
   /* width: 28vw; */
+  object-fit: cover;
   height: 18vw;
-  max-height: 180px;
+  max-height: 169px;
   border: 1px solid rgb(208, 208, 208);
 }
-.item-img:hover{
+.item-img-content:hover{
   border: 2px solid black;
 }
 .sold-out {

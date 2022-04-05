@@ -36,7 +36,7 @@
   padding: 1px 4px 1px 4px;
   border-radius: 5px;
   color: gray;
-  margin: 10px 0 5px 5px;
+  margin: 10px auto;
   font-size: 12px;
 }
 
@@ -51,7 +51,7 @@
 }
 .shop_left_bar{
   position: sticky;
-  top: 60px;
+  top: 100px;
 }
 .search_title{
   text-align: center;
@@ -101,7 +101,7 @@
 
 /* shop検索結果 */
 .shop_main{
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
@@ -113,7 +113,7 @@
   margin: 20px 0 0 15px;
   width: 237px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2);
-  /* padding: 5px; */
+  text-align: center;
   height: 350px;
   border-radius: 20px;
   background-color: #fff1d6;
@@ -124,14 +124,14 @@
   border: 2px solid black;
 }
 .shop_image{
-  width: 235px;
+  width: 242px;
   height: 200px;
   object-fit: cover;
   border-radius: 20px 20px 0 0 ;
 }
 .shop_image_name{
-  margin: 10px 0 10px 10px;
-  width: 15vw;  
+  margin: 10px auto;
+  width: 150px;  
 	white-space: nowrap;  
 	overflow: hidden;  
 	text-overflow: ellipsis;  
@@ -139,13 +139,13 @@
 	-o-text-overflow: ellipsis;  
 }
 .shop_name{
-	width: 15vw;  
+	width: 170px;  
 	white-space: nowrap;  
 	overflow: hidden;  
 	text-overflow: ellipsis;  
 	-webkit-text-overflow: ellipsis;  
 	-o-text-overflow: ellipsis;  
-  margin: 5px 0 0 5px;
+  margin: 5px auto;
   font-weight: bold;
 }
 .shop_text{
@@ -158,4 +158,29 @@
   padding: 0 5px;
   font-size: 12px;
   margin-top: 5px;
+}
+
+@media screen and (max-width:900px){
+  .shop_search{
+    width: 29%;
+  }
+}
+@media screen and (max-width:767px){
+  .shop_search_form{
+    width: 100px;
+  }
+  .shop_category_form{
+    width: 100px;
+  }
+  .shop_search{
+    width: 14%;
+  }
+  .shop_submit_btn{
+    width: 0;
+  }
+}
+@media screen and (max-width:577px){
+  .shop_search{
+    width: 27%;
+  }
 }

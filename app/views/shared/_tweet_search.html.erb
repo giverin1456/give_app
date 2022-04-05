@@ -84,13 +84,12 @@
              <%end%>
             <%end%>
             <div class="tweet_like">
-              <%= image_tag("comment", class:"tweet_btn")%>
+              <%=link_to image_tag("comment", class:"tweet_btn"),tweet_path(tweet)%>
             </div>
           </div>
           <%# /like%>
 
        <div class="tweet-wrap">
-         <input class="tweet-trigger" type="checkbox">
          <label class="tweet-btn" ></label>
          <div class="tweet-item"><%= tweet.text%></div>
        </div>

@@ -9,10 +9,12 @@
       <%= search_form_for @q, url: search_shops_path, html: {id: "detailed-search-form"} do |f| %>
        <div class="search_shop_name"> 
         <%= f.label :name_cont, 'SHOP名',class: :shop_search_name %>
+        <br>
         <%= f.text_field :name_cont, placeholder: 'SHOP名',class: :shop_search_form %>
        </div>
          <div class="search_shop_category">
           <%= f.label :category_id_eq, 'カテゴリー',class: :shop_search_category %>
+          <br>
           <%= f.collection_select(:shop_category_id_eq, ShopCategory.all, :id, :name, {include_blank: "指定なし"},class: :shop_category_form) %>
          </div>
            <div class="shop_submit_btn">

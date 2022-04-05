@@ -3,11 +3,11 @@
 <div class="account">
  <div class="account_title">購入したITEM
  </div>
-  <%if @favorites.present?%>
+  <%if @item.present?%>
  <div class="account_list">
   <% @item.each do |i|%>
    <div class="account_infomation">
-     <%# <%= link_to item_path(i) do%> 
+     <%= link_to item_path(i.item) do %>
      <div class="account_content">
       <div class="account_image_content">
         <%= image_tag (i.item.image),class:"account_image"%>
@@ -27,7 +27,7 @@
       </div>
      </div>
    </div>
-      <%# <%end%> 
+      <%end%>
     <%end%>
     <%else%>
     <div class="not_item_favorite">

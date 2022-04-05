@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    if tweet.destroy
+    if @tweet.destroy
       redirect_to search_tweets_path
     end
   end

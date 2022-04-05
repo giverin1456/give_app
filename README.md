@@ -1,7 +1,7 @@
 # README
 # テーブル設計
 
-
+[![Image from Gyazo](https://i.gyazo.com/e12996614a66a34c03f236c97fe24fdd.gif)](https://gyazo.com/e12996614a66a34c03f236c97fe24fdd)
 ## users テーブル
 
 | Column              | Type   | Options                  |
