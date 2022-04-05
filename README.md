@@ -19,44 +19,42 @@ https://give-app1456.herokuapp.com/
 ・パスワード：taiki1456
 
 # 制作背景(意図)
-新型コロナウィルスの影響で、商品が売れなかったり、離職者が大勢出ている問題を受けて、金銭的な課題を解決したいと思いアプリを開発しました。
+新型コロナウィルスの影響で、商品が売れなかったり、離職者が大勢出ている問題を受けて、金銭的な課題を解決したいと思いアプリを開発しました。  
 
 # DEMO
 ## トップページ
 [![Image from Gyazo](https://i.gyazo.com/e12996614a66a34c03f236c97fe24fdd.gif)](https://gyazo.com/e12996614a66a34c03f236c97fe24fdd)
-・新着STORYと新着商品が一覧になっています。
+・新着STORYと新着商品が一覧になっています。  
 ## 新規登録ページ
-[![Image from Gyazo](https://i.gyazo.com/4a3ac814091afca6c3cf822e112dcce4.gif)](https://gyazo.com/4a3ac814091afca6c3cf822e112dcce4)
-・
+[![Image from Gyazo](https://i.gyazo.com/4a3ac814091afca6c3cf822e112dcce4.gif)](https://gyazo.com/4a3ac814091afca6c3cf822e112dcce4)  
 ## 商品出品ページ
-[![Image from Gyazo](https://i.gyazo.com/ea52536d6798bc4403e8c032b68c9399.gif)](https://gyazo.com/ea52536d6798bc4403e8c032b68c9399)
+[![Image from Gyazo](https://i.gyazo.com/ea52536d6798bc4403e8c032b68c9399.gif)](https://gyazo.com/ea52536d6798bc4403e8c032b68c9399)  
 ・SHOPを開設していれば、商品を出品することができます。  
 ・カテゴリー、商品の状態、送料の負担、発送元の地域、発送までの日数はActiveHashで実装しています。  
 ・価格を入力すると非同期で販売利益の計算をします。
 ## 商品詳細ページ
-[![Image from Gyazo](https://i.gyazo.com/1e755081a4dcbe0f23af6859efc21efa.gif)](https://gyazo.com/1e755081a4dcbe0f23af6859efc21efa)
-・いいねボタンを押すことでuserページのお気に入りのITEMに追加することができます。
+[![Image from Gyazo](https://i.gyazo.com/1e755081a4dcbe0f23af6859efc21efa.gif)](https://gyazo.com/1e755081a4dcbe0f23af6859efc21efa)  
+・いいねボタンを押すことでuserページのお気に入りのITEMに追加することができます。  
 ・ショップ、代表、カテゴリー、商品の状態、配送料の負担、発送元の地域、発送日の目安、商品の説明を見ることができます。また、ショップの商品を一覧で見ることができます。
 ## STORY一覧ページ
-[![Image from Gyazo](https://i.gyazo.com/fa0759fd16ca110ea0a2647e94211b2e.gif)](https://gyazo.com/fa0759fd16ca110ea0a2647e94211b2e)
-・userが投稿したSTORYを見ることができます。いいねを押すとお気に入りのSTORYに追加されます。
+[![Image from Gyazo](https://i.gyazo.com/fa0759fd16ca110ea0a2647e94211b2e.gif)](https://gyazo.com/fa0759fd16ca110ea0a2647e94211b2e)  
+・userが投稿したSTORYを見ることができます。いいねを押すとお気に入りのSTORYに追加されます。  
 ・STORYのtextを検索することができます。
 ## STORY詳細ページ
-[![Image from Gyazo](https://i.gyazo.com/40b58aa60fbc8633ca6ebd6f24955836.gif)](https://gyazo.com/40b58aa60fbc8633ca6ebd6f24955836)
-・商品の詳細とコメントを確認することができます。
+[![Image from Gyazo](https://i.gyazo.com/40b58aa60fbc8633ca6ebd6f24955836.gif)](https://gyazo.com/40b58aa60fbc8633ca6ebd6f24955836)  
+・商品の詳細とコメントを確認することができます。  
 ・STORYを投稿した本人なら編集、削除することができます。
 ## SHOP一覧ページ
-[![Image from Gyazo](https://i.gyazo.com/a5cce56cbc67db36e847fa2b68bc20b0.gif)](https://gyazo.com/a5cce56cbc67db36e847fa2b68bc20b0)
+[![Image from Gyazo](https://i.gyazo.com/a5cce56cbc67db36e847fa2b68bc20b0.gif)](https://gyazo.com/a5cce56cbc67db36e847fa2b68bc20b0)  
 ・SHOPを一覧できます。SHOP名とカテゴリーごとに検索することができます。
 ## USERページ
 [![Image from Gyazo](https://i.gyazo.com/e8465730012abc272d177281e28357c9.gif)](https://gyazo.com/e8465730012abc272d177281e28357c9)
-
 ## CHATページ
-[![Image from Gyazo](https://i.gyazo.com/1f0af42292e0fc8927425dcde93e5653.gif)](https://gyazo.com/1f0af42292e0fc8927425dcde93e5653)
+[![Image from Gyazo](https://i.gyazo.com/1f0af42292e0fc8927425dcde93e5653.gif)](https://gyazo.com/1f0af42292e0fc8927425dcde93e5653)  
 ・メッセージのやりとりをしたことがあるuserが一覧になっています。それぞれメッセージのやりとりを行うことができます。
 ## 通知ページ
 [![Image from Gyazo](https://i.gyazo.com/12586b59e917cfa040affea3e5716170.gif)](https://gyazo.com/12586b59e917cfa040affea3e5716170)
-・自分が投稿したSTORYにいいねやコメントがついた時、出品した商品にいいねやコメントがついた時、チャットメッセージが届いた時、フォローされた時、コメントした商品、STORYに他userがコメントした時に通知がきます。
+・自分が投稿したSTORYにいいねやコメントがついた時、出品した商品にいいねやコメントがついた時、チャットメッセージが届いた時、フォローされた時、コメントした商品、STORYに他userがコメントした時に通知がきます。  
 ・通知が来たらheaderの通知アイコンにマークがつきます。
 
 # 工夫したポイント
@@ -91,13 +89,13 @@ Rspec
 VScode
 
 # 課題や今後実装したい機能
-課題としては、読みやすいコードをかけなかったことです。例えば、誰が見てもわかるclass名をつけられなかったり、簡潔なコードを書けなかったことが挙げられます。
+課題としては、読みやすいコードをかけなかったことです。例えば、誰が見てもわかるclass名をつけられなかったり、簡潔なコードを書けなかったことが挙げられます。  
 また、githubをこまめに更新しなかったり、masterにそのまま書きこんでしまった点も課題です。今後はチーム開発を意識した実装を行なっていきたいと思います。
 
 
-今後実装したい機能としては、
-・収支表
-・JSでもっと動きをつけたい
+今後実装したい機能としては、  
+・収支表  
+・JSでもっと動きをつけたい  
 
 
 
