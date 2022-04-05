@@ -33,10 +33,11 @@ https://give-app1456.herokuapp.com/
 同じような境遇の人たちで熱い情熱を共有してもらえたらいいなー
 離職者に商品を売れる場を
 
-
-
 # DEMO
 ## トップページ
+
+[![Image from Gyazo](https://i.gyazo.com/e12996614a66a34c03f236c97fe24fdd.gif)](https://gyazo.com/e12996614a66a34c03f236c97fe24fdd)
+
 ## 新規登録、ログイン画面
 ## 商品出品ページ
 ## 商品詳細ページ
