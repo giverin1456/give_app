@@ -1,5 +1,7 @@
 # README
 
+![空の写真](sky.jpg)
+
 # アプリ名
 Give
 
