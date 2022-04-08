@@ -63,14 +63,15 @@
         <% if m.user_id  == current_user.id%>
         <%# current_userの場合→右 %>
          <div class="lost_right">
+         <div class="current_chat_time">
+               <%= "#{time_ago_in_words(m.created_at)}前"%>
+            </div>
            <div class="current_chat_box">
              <div class="current_chat_text">
               <%= m.text %>
              </div>
-             <div class="current_chat_time">
-               <%= "#{time_ago_in_words(m.created_at)}前"%>
-            </div>
         </div>
+
        </div>
        <%#  /current_userの場合→右 %>
            
@@ -87,14 +88,19 @@
              <div class="chat_user_nickname">
                <%= m.user.nickname%>
              </div>
+
+             <div class="chat_text_time">
              <div class="chat-box">
               <div class="chat-text">
                <%= m.text %>
               </div>
+              </div>
               <div class="chat_time">
                <%= "#{time_ago_in_words(m.created_at)}前"%>
               </div>
-             </div>
+              </div>
+             
+
             </div>
            </div>
         </div>

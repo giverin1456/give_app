@@ -122,16 +122,19 @@
   width: 50%;
   margin: 0 0 0 auto;
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 .current_chat_box{
   position: relative;
   display: inline-block;
-  margin: 10px 0 0 auto;
+  margin: 10px 0 0  0;
   padding: 7px 10px;
   background: #FFF;
   border: solid 3px #555;
   box-sizing: border-box;
   border-radius: 10px;
+  max-width: 80%;
 }
 .current_chat_box:before {
   content: "";
@@ -160,6 +163,7 @@
   font-size: 7px;
   color: gray;
   text-align: end;
+  margin-right: 3px;
 }
 
 
@@ -172,7 +176,7 @@
   display: inline-block;
   padding: 7px 10px;
   min-width: 120px;
-  max-width: 100%;
+  max-width: 80%;
   color: #555;
   background:#8DE055;
   border: solid 3px #555;
@@ -200,4 +204,9 @@
   font-size: 7px;
   color: gray;
   text-align: end;
+  margin-left:3px;
+}
+.chat_text_time{
+  display: flex;
+  align-items: flex-end;
 }

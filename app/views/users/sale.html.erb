@@ -1,10 +1,7 @@
  <%= render "shared/header" %>
 
 <div class="account">
-  <div class="account_title">売り上げ利益</div>
-    <div class="account_sum">利益合計
-      ¥<%= (@item.sum(:price) * 0.9).floor%>
-    </div>
+  <div class="account_title">売上履歴</div>
      <%if @item.present?%>
        <div class="account_list">
          <% @item.each do |i|%>

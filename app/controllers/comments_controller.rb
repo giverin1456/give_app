@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
     if @comment.save
       @item.create_notification_comment!(current_user, @comment.id, @item.id)
     redirect_to "/items/#{@comment.item.id}"
-    else "items/show"
+    else 
+      "items/show"
     end
   end
 

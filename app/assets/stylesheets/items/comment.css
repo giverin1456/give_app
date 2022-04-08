@@ -36,13 +36,20 @@
   box-shadow: 0 2px 2px 0 rgba(151, 151, 151, 0.5);
   font-size: 14px;
   display: inline-block;
+  max-width: 220px;
 }
 .show_tweet_time{
-  font-size: 10px;
+  font-size: 9px;
   color: gray;
   text-align: end;
+  margin-left: 3px;
+
 }
 
+.comment_text_time{
+  display: flex;
+  align-items: flex-end;
+}
 
 
 .comment-box {

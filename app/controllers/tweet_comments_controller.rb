@@ -6,7 +6,7 @@ class TweetCommentsController < ApplicationController
      @tweet.create_notification_comment!(current_user, @comment.id)
      redirect_to "/tweets/#{@comment.tweet.id}"
     else
-      render 'tweet/show'
+      'tweets/show'
     end
   end
 

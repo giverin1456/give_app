@@ -101,12 +101,15 @@
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %></strong>
          </div>
        </div>
+       <div class="comment_text_time">
        <div class="comment_text">
         <%= comment.text %>
+         </div>
          <div class="show_tweet_time">
         <%= " #{time_ago_in_words(comment.created_at)}前" %>
        </div>
-      </div>
+       </div>
+     
      </div>
     </div>
     <% end %>
@@ -129,7 +132,7 @@
    </div>
    </div>
     </div>
-        <div class="show_item_shop"><%= @user.shop.name%> ITEM
+        <div class="show_item_shop"><%= @user.shop.name%>
   </div>
   <%= render partial: 'items/item' %>
     </div>
