@@ -20,6 +20,7 @@
      
        <li><%= link_to image_tag("home",class:"header_image"),root_path%></li>
        <li><%= link_to image_tag("camera",class:"header_image"),new_item_path%></li>
+       <li><%= link_to image_tag("tweets",class:"header_image"),new_tweet_path%></li>
        <% if current_user.image.present? %>
          <li><%= link_to image_tag(current_user.image,class: "header_user_icon"),user_path(current_user.id) %></li>
        <%else%>

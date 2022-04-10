@@ -38,12 +38,14 @@
    <div class="comment_right">
     <div class="tweet_sticky">
       <div class="tweet_show_user_information">
+       <%= link_to user_path(@tweet.user.id) do%>
          <% if @tweet.user.image.present? %>
          <%= image_tag @tweet.user.image, class:'tweet_show_default',id: 'message-image'%>
          <%= link_to @tweet.user.nickname, user_path(@tweet.user.id), class: :tweet_show_user %>
          <%else%>
          <%= link_to image_tag("human", class:"tweet_show_default"),user_path(current_user.id) %>
-         <%= link_to @tweet.user.nickname, user_path(@tweet.user.id), class: :tweet_show_user %>
+         <%= @tweet.user.nickname(class: :tweet_show_user) %>
+         <%end%>
          <%end%>
           <div class="one_more">
            <ul class="one_more_list">
@@ -108,4 +110,4 @@
 
   <%# /コメント %>
 
- <%# <%= render partial: "shared/second-footer" %> 
+<%= render partial: "shared/second-footer" %> 

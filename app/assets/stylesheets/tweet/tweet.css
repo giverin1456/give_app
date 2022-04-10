@@ -295,41 +295,36 @@ padding: 10px;
 
 
 
-
-
-
-
-/* .ttt{
-  display: flex;
-  flex-wrap: wrap;
-} */
-
-/* .one_tweet{
-  border: 1px solid rgb(209, 209, 209);
-  margin: 20px auto;
-  width: 50vw;
-  position: relative;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.one_image{
-  text-align: center;
-  margin: 40px;
-}
-
-.one_user{
-  text-align: center;
-} */
-
-/* @media (max-width: 800px) {
-  .tweet_main {
-    column-count: 2;
+@media screen and (max-width:960px) {
+  .tweet_show{
+    flex-wrap: wrap;
   }
-} */
-
-/* @media (max-width: 480px) {
-  .tweet_main {
-    column-count: 1;
+  .tweet_left{
+    width: 100%;
   }
-} */
+  .comment_right{
+    width: 100%;
+  }
+  .tweet_show_user_information{
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .side_tag{
+    display: none;
+  }
+  .tweet-search-content{
+    margin: 0;
+  }
+  .tweet_main{
+    width: 80%;
+    max-width: 100%;
+    margin-top: 60px;
+  }
+  .tweet_side{
+    width: 15%;
+  }
+  .tweet_side_image{
+    width: 30px;
+  }
+}

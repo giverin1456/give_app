@@ -76,15 +76,17 @@
    <%end%>
   </div>
   <%else%>
+  <div class="favorite_tweet_main">
   <div class="not_tweet_favorite">
     <%= link_to image_tag("tweets",class:"not_favorite_image"),search_tweets_path %>
      <p>お気に入りにSTORYがありません...</p>
   </div>
    <%end%>
+   </div>
 </div>
 </div>
 
 
 
-<%# <%= render "shared/second-footer" %> 
+<%= render "shared/second-footer"%>
 

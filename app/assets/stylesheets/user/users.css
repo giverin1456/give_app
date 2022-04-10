@@ -38,7 +38,7 @@ a {
 .user_side_bar{
   display: flex;
   border-bottom: solid 1px rgb(181, 181, 181);
-  width: 18vw;
+  width: 15vw;
   padding: 25px 0 5px 5px;
   align-items: center;
 }
@@ -734,7 +734,6 @@ a {
 }
 .not_tweet_favorite{
   text-align: center;
-  width: 40%;
   margin-top: 170px;
 }
 .not_tweet_favorite p{
@@ -752,10 +751,15 @@ a {
   margin-top: 20px;
   font-size: 13px;
 }
+
+.favorite_tweet_main{
+  width: 85%;
+}
 .not_favorite_image{
   width: 100px;
   height: 100px;
 }
+
 
 
 
@@ -780,17 +784,26 @@ a {
   left: 120px;
 }
 
+@media screen and (max-width:900px) {
+  .user_menu{
+    margin: 20px 0;
+    width: 30%;
+  }
+  .user_side_bar{
+    width: 20vw;
+  }
+}
 
-
-@media screen and (max-width:767px) {
+@media screen and (max-width:800px) {
   .user_side_text{
     display: none;
   }
   .user_side_bar{
     border: 0 ;
+    width: 30px;
   }
   .user_menu {
-    width: 10% ;
+    width: 25% ;
     margin: 0 ;
   }
   .user-image{
@@ -798,5 +811,27 @@ a {
   }
   .favorite_content{
     width:470px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .grad-btn{
+    margin: 0 0 0 70%;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .favorite_content{
+    width:350px;
+  }
+  .favorite_image{
+    width: 100px ;
+    height:90px ;
+  }
+  .ale{
+    width: 70%;
+  }
+  .favorite_text{
+    width: 100%;
   }
 }

@@ -1,5 +1,6 @@
  <%= render "shared/header" %>
 
+<div class="main">
 <div class="account">
   <div class="account_title">売上履歴</div>
      <%if @item.present?%>
@@ -39,4 +40,6 @@
         <%end%>
   </div>
 </div>
+</div>
+<%= render partial: "shared/second-footer" %> 
 

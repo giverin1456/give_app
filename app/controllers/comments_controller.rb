@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       @item.create_notification_comment!(current_user, @comment.id, @item.id)
     redirect_to "/items/#{@comment.item.id}"
     else 
-      "items/show"
+      redirect_to "/items/#{@comment.item_id}"
     end
   end
 

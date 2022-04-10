@@ -4,7 +4,7 @@
   margin: 20px auto;
   border: solid 1px rgb(136, 136, 136);
   box-shadow: 0 5px 5px 0 rgba(184, 184, 184, 0.5);
-  height: 80vh;
+  height: 82vh;
   width: 65%;
 }
 .room_user{
@@ -16,7 +16,7 @@
 }
 .soll2{
   margin: 25px auto;
-  width: 200px;
+  /* width: 200px; */
   text-align: center;
   border-bottom: solid 1px rgb(136, 136, 136);
 }
@@ -68,14 +68,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 100%;
 }
 
 
 /* room_show */
 .main_chat{
-  margin: 10px 0;
   width: 70%;
+  border-left: solid 1px rgb(136, 136, 136);
 }
 .room_user_list{
   border-bottom: solid 1px;
@@ -99,27 +99,30 @@
 .form-submit{
   position: relative;
 }
+.new_message{
+  text-align: center;
+  margin: 10px;
+}
 .message_icon{
   width: 22px;
   height: 22px;
   position: absolute;
   bottom: 13px;
-  right: 10px;
+  right: 20px;
 }
 
 /* トーク部分 */
 .chats{
   padding:0 20px 0 10px;
-  border-left: solid 1px rgb(136, 136, 136);
   /* border-right: solid 1px rgb(136, 136, 136); */
   overflow-x: scroll;
-  height: 67vh;
+  height: 71vh;
   margin-top: 10px;
 }
 
 /* current_userの場合 */
 .lost_right{
-  width: 50%;
+  width: 100%;
   margin: 0 0 0 auto;
   display: flex;
   justify-content: flex-end;
@@ -134,7 +137,7 @@
   border: solid 3px #555;
   box-sizing: border-box;
   border-radius: 10px;
-  max-width: 80%;
+  max-width: 60%;
 }
 .current_chat_box:before {
   content: "";
@@ -169,14 +172,14 @@
 
 /* 他ユーザーの場合 */
 .lost_left{
-  width: 50%;
+  width: 100%;
 }
 .chat-box {
   position: relative;
   display: inline-block;
   padding: 7px 10px;
   min-width: 120px;
-  max-width: 80%;
+  max-width: 60%;
   color: #555;
   background:#8DE055;
   border: solid 3px #555;
@@ -209,4 +212,15 @@
 .chat_text_time{
   display: flex;
   align-items: flex-end;
+}
+
+@media screen and (max-width:900px){
+  .chat_room{
+    width: 95%;
+  }
+}
+@media screen and (max-width:480px){
+  .room_user_content{
+    margin: 14px 0 5px 5px;
+  }
 }

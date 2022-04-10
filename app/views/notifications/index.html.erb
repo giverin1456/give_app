@@ -37,6 +37,7 @@
 </header>
 
 <div>
+ <div class="main">
   <h4 class="sub-title">お知らせ</h4>
     <% if @notifications.exists? %>
      <div class="users-index">
@@ -49,6 +50,7 @@
       <p>通知はありません...</p>
      </div>
    <%end%>
+</div>
 </div>
 
 <%= render "shared/second-footer" %>
