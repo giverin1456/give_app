@@ -201,3 +201,13 @@
 .inc {
   font-size: 13px;
 }
+
+
+@media screen and (max-width:480px) {
+  .items-sell-contents{
+    min-width: 400px;
+  }
+  .items-sell-main{
+    min-width: 400px;
+  }
+}

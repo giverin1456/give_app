@@ -96,7 +96,7 @@ a {
   top: 170px;
   left: 60px;
   background-color: white;
-
+  object-fit: cover;
 }
 
 .user_top_img{
@@ -669,7 +669,8 @@ a {
   display: flex;
   border-top: solid 1px rgb(182, 182, 182);
   padding: 10px;
-  width: 600px;
+  width: 71vw;
+    max-width: 600px;
   margin: 0 auto;
 }
 
@@ -812,6 +813,27 @@ a {
   .favorite_content{
     width:470px;
   }
+
+  .user_nickname{
+    font-size: 2.6vw;
+  }
+  .follow_number_text{
+    font-size: 2vw;
+  }
+
+  .user-table {
+    width: 80%;
+  }
+  .detail-shop{
+    font-size: 2.5vw;
+  }
+  .detail-user{
+    font-size: 2.5vw;
+  }
+  .grad-item{
+    font-size: 2vw;
+  }
+
 }
 
 @media screen and (max-width:767px) {
@@ -834,4 +856,18 @@ a {
   .favorite_text{
     width: 100%;
   }
+
+  .show_shop_image img{
+    height: 180px;
+  }
+  .user-image{
+    top: 150px;
+  }
+  .two_edit{
+    top:182px;
+  }
+  .user_left{
+    margin-top: 235px;
+  }
+
 }

@@ -262,58 +262,9 @@ a {
     .tweet_favorite_title{
       display: none !important;
     }
-  // item/show
-  .item-box{
-    flex-wrap: wrap;
-  }
-  .left-image{
-    width: 100% !important;
-  }
-  .right-item{
-    width: 100% !important;
-    text-align: center;
-  }
-  .item-price{
-    justify-content: center !important;
-  }
-  .detail-table{
-    margin: 30px auto !important;
-  }
-  .right-item>.name{
-    margin: 30px 0 !important;
-  }
-
-
 }
 
 @media screen and (max-width:767px){
-  .wrapper{
-    display: block !important;
-  }
-  .search_category{
-    display: 100vw;
-  }
-  .search_items{
-    width: 100%;
-  }
-  form#item_search {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100vw;
-  }
-  .search_item{
-    width: 180px;
-  }
-  .item_submit{
-    margin: 35px 0 !important;
-  }
-  .search_form{
-    width: 60px !important;
-  }
-  .item_form{
-    width: 150px !important;
-  }
-
   .shopping_image{
     width: 70px;
     height: 70px;
@@ -321,24 +272,6 @@ a {
 }
 
 @media screen and (max-width:600px) {
-  // notification
-  .user-view{
-    width: 400px !important;
-  }
-  .sub-title{
-    width: 400px !important;
-  }
-
-  .item_form{
-    width: 100px !important;
-  }
-  .search_item{
-    width: 120px;
-  }
-  .search_form{
-    width: 40px !important;
-  }
-
   .header_left{
     display: none;
   }
@@ -346,13 +279,6 @@ a {
 
  
 @media screen and (max-width:480px) {
-  // item/side-bar
-  .search_form{
-    width: 34px !important;
-  }
-  .search_item{
-    width: 105px;
-  }
 
   // item/item or story
   .item_search_page{
@@ -361,10 +287,6 @@ a {
   .tweet_search_page{
     margin:20px 5px;
   }
-  // .shopping_image{
-  //   width: 109px;
-  //   height: 109px;
-  // }
 
   // item/index メイン画像
   .main_image{
@@ -379,66 +301,9 @@ a {
     left: 79px;
   }
 
-  // item/show
-  .item-box-image{
-    height: 300px !important;
-  }
-
-  // tweet/show
-  .tweet_show_list{
-    width: 300px !important;
-  }
-
   // ログイン
   input#message-image {
     font-size: 10px;
   }
-
-  // 出品
-  .items-sell-contents{
-    min-width: 400px !important;
-  }
-  .items-sell-main{
-    min-width: 400px !important;
-  }
-
-  // notification
-  .user-view{
-    width: 300px !important;
-  }
-  .sub-title{
-    width:300px !important;
-  }
-
-  .account_content{
-    width: 350px !important;
-  }
-  .account_image{
-    width: 120px !important;
-  }
-
-  // user/show
-  .show_shop_image img{
-    height: 180px !important;
-  }
-  .user-image{
-    top: 150px !important;
-  }
-  .two_edit{
-    top:182px !important;
-  }
-  .user_left{
-    margin-top: 235px !important;
-  }
-
   // shop/new edit
-  .shop_create{
-    min-width: 200px !important;
-  }
-  .shop_create{
-    width: 85vw !important;
-  }
-  input#message_image {
-    font-size: 10px !important;
-}
 } 

@@ -183,4 +183,14 @@
   .shop_search{
     width: 27%;
   }
+  input#message_image {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .shop_create{
+    min-width: 200px;
+    width: 85vw;
+  }
 }

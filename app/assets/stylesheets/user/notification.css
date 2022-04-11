@@ -51,3 +51,22 @@
   width: 2px;
   margin: 5px;
 }
+
+@media screen and (max-width:600px) {
+  .user-view{
+    width: 400px !important;
+  }
+  .sub-title{
+    width: 400px !important;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .user-view{
+    width: 300px;
+  }
+  .sub-title{
+    width:300px;
+  }
+}
+

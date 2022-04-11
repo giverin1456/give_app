@@ -72,7 +72,7 @@ class ItemsController < ApplicationController
 
   private
   def items_params
-    params.require(:item).permit(:name, :text, :category_id, :status_id, :delivery_charge_id, :prefecture_id, :day_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :category_id, :delivery_charge_id, :prefecture_id, :day_id, :price, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index
@@ -102,7 +102,7 @@ class ItemsController < ApplicationController
   def set_item_column
     @item_name = Item.select("name").distinct
     @item_category = Category.all
-    @item_status = Status.all
+    # @item_status = Status.all
     @item_delivery_charge = DeliveryCharge.all
     @item_day = Day.all
   end

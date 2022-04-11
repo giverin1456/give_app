@@ -24,6 +24,8 @@
   border-radius: 50%;
   height: 30px;
   border: solid 1px gray;
+  object-fit: cover;
+
 }
 .header_user_icon:hover{
   transform: scale(1.4, 1.4);

@@ -24,7 +24,7 @@
   height: 500px;
   width: 100%;
   background-color: rgb(205, 202, 202);
-  object-fit: contain;
+  object-fit: cover;
 }
 
 
@@ -177,3 +177,35 @@
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 /* //商品の一覧 */
+
+
+
+
+@media screen and (max-width:960px) {
+ .item-box{
+   flex-wrap: wrap;
+ }
+ .left-image{
+   width: 100%;
+ }
+ .right-item{
+   width: 100%;
+   text-align: center;
+ }
+ .item-price{
+   justify-content: center;
+ }
+ .detail-table{
+   margin: 30px auto;
+ }
+ .right-item>.name{
+   margin: 30px 0 ;
+ }
+}
+
+
+@media screen and (max-width:480px) {
+  .item-box-image{
+    height: 300px;
+  }
+}

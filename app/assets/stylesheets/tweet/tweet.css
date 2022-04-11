@@ -328,3 +328,13 @@ padding: 10px;
     width: 30px;
   }
 }
+
+@media screen and (max-width:480px) {
+  .tweet_show_list{
+    width: 300px;
+  }
+  .tweet_text{
+    width: 80vw;
+    height: 70vw;
+  }
+}

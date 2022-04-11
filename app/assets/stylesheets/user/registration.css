@@ -54,6 +54,7 @@
   width: 200px;
   border-radius: 50%;
   border: solid 1px black;
+  object-fit: cover;
 }
 
 .user_image_preview img{
@@ -183,5 +184,8 @@
 @media screen and (max-width:480px) {
   .registration-main{
     min-width: 100px !important;
+  }
+  .form-group{
+    width: 60%;
   }
 }
