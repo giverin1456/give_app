@@ -90,7 +90,7 @@ a {
   max-width: 150px;
   max-height: 150px;
   height: 14vw;
-  border: solid 2px black;
+  border: solid 3px black;
   z-index: 2;
   position: absolute;
   top: 170px;
@@ -870,6 +870,16 @@ a {
   }
   .user_left{
     margin-top: 235px;
+  }
+
+  .chat2{
+    top: 187px;
+  }
+  .follow_cancel{
+    top: 187px;
+  }
+  .follow_action{
+    top: 187px;
   }
 
 }

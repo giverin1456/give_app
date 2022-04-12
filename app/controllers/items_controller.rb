@@ -102,7 +102,6 @@ class ItemsController < ApplicationController
   def set_item_column
     @item_name = Item.select("name").distinct
     @item_category = Category.all
-    # @item_status = Status.all
     @item_delivery_charge = DeliveryCharge.all
     @item_day = Day.all
   end
