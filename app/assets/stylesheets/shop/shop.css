@@ -104,7 +104,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin: 20px 0 0 25px;
 }
 .shop_content{
   display: flex;
@@ -182,9 +182,13 @@
 @media screen and (max-width:577px){
   .shop_search{
     width: 27%;
+    margin-left: 5px;
   }
   input#message_image {
     font-size: 10px;
+  }
+  .shop_main{
+    margin: 0;
   }
 }
 

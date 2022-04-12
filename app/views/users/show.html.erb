@@ -74,20 +74,21 @@
 
            <div class="follow_number">
             <div class="follow_contents_number">
-              <%= link_to followees_user_path(@user) do%>
-               <div class="follow_number_count">
-                <%= @user.followees_count%>
-                 <div class="follow_number_text">following</div>
-               </div>
-              <%end%>
-            </div>
-            <div class="follow_contents_number">
              <%= link_to follower_user_path(@user) do%>
               <div class="follow_number_count">
-                <%= @user.followers_count%>
-                  <div class="follow_number_text">followers</div>
+                  <div class="follow_number_text">フォロワー</div>
+                  <%= @user.followers_count%>人
               </div>
              <%end%>
+            </div>
+
+            <div class="follow_contents_number">
+              <%= link_to followees_user_path(@user) do%>
+               <div class="follow_number_count">
+                 <div class="follow_number_text">フォロー中</div>
+                 <%= @user.followees_count%>人
+               </div>
+              <%end%>
             </div>
        </div>
 
