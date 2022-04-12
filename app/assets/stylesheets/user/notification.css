@@ -34,6 +34,7 @@
   height: 23px;
   border-radius: 50%;
   border: 1px solid gray;
+  object-fit: cover;
 }
 
 
@@ -54,16 +55,16 @@
 
 @media screen and (max-width:600px) {
   .user-view{
-    width: 400px !important;
+    width: 400px;
   }
   .sub-title{
-    width: 400px !important;
+    width: 400px;
   }
 }
 
 @media screen and (max-width:480px) {
   .user-view{
-    width: 300px;
+    width: 300px ;
   }
   .sub-title{
     width:300px;

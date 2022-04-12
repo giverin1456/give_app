@@ -680,10 +680,12 @@ a {
 }
 
 .follow_image{
-  width: 50px;
+  width: 56px;
   height: 50px;
   border-radius: 50%;
   border: 1px solid gray;
+  object-fit: cover;
+
 }
 
 .follow_text{

@@ -44,7 +44,9 @@
          <%= link_to @tweet.user.nickname, user_path(@tweet.user.id), class: :tweet_show_user %>
          <%else%>
          <%= link_to image_tag("human", class:"tweet_show_default"),user_path(current_user.id) %>
-         <%= @tweet.user.nickname(class: :tweet_show_user) %>
+         <div class="tweet_show_user">
+         <%= @tweet.user.nickname%>
+         </div>
          <%end%>
          <%end%>
           <div class="one_more">

@@ -171,7 +171,7 @@
   background-color: #fff1d6;
   margin: 10px auto;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .5);
-  width: 500px;
+  width:480px;
   position: sticky;
   top: 140px;
 }
@@ -191,6 +191,7 @@
   border-radius: 50px;
   border: 1px solid gray;
   background-color: white;
+  object-fit: cover;
 }
 .tweet_show_user{
   font-size: 18px;
@@ -327,6 +328,10 @@ padding: 10px;
   .tweet_side_image{
     width: 30px;
   }
+
+  .comment_right {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-width:480px) {
@@ -336,5 +341,8 @@ padding: 10px;
   .tweet_text{
     width: 80vw;
     height: 70vw;
+  }
+  .tweet_show_user_information{
+    width: 330px;
   }
 }
