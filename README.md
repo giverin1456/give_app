@@ -51,13 +51,13 @@ https://give-app1456.herokuapp.com/
 - カテゴリー、商品の状態、送料の負担、発送元の地域、発送までの日数はActiveHashで実装しています。  
 - 価格を入力すると非同期で販売利益の計算を行います。
 ## 商品詳細ページ
-[![Image from Gyazo](https://i.gyazo.com/f8d2a505a8c7fcfd2f7c3f8fe5ae1c22.gif)](https://gyazo.com/f8d2a505a8c7fcfd2f7c3f8fe5ae1c22)
+[![Image from Gyazo](https://i.gyazo.com/5637b671b9d2c7cbfbe77b07ff8a640f.gif)](https://gyazo.com/5637b671b9d2c7cbfbe77b07ff8a640f)
 - いいねボタンを押すことで「お気に入りのITEM」に追加することができます。  
 - ショップ、代表、カテゴリー、配送料の負担、発送元の地域、発送日の目安、商品の説明を見ることができます。また、販売者のショップ商品を一覧で見ることができます。  
 - 商品に対してコメントを書き込むことができます。  
 - 出品した本人なら編集、削除することができます。
 ## STORY一覧ページ
-[![Image from Gyazo](https://i.gyazo.com/fa0759fd16ca110ea0a2647e94211b2e.gif)](https://gyazo.com/fa0759fd16ca110ea0a2647e94211b2e)  
+[![Image from Gyazo](https://i.gyazo.com/a832ca39fc6c57233abf53b6c648a272.gif)](https://gyazo.com/a832ca39fc6c57233abf53b6c648a272)
 - userが投稿したSTORYを見ることができます。いいねを押すとお気に入りのSTORYに追加されます。  
 - STORYの文章を検索することができます。  
 - STORYを選択すると詳細ページに遷移します。
@@ -66,21 +66,21 @@ https://give-app1456.herokuapp.com/
 - 商品の詳細とコメントを確認することができます。  
 - STORYを投稿した本人なら編集、削除することができます。
 ## SHOP一覧ページ
-[![Image from Gyazo](https://i.gyazo.com/c020f5c8fb7b86ce2cf8fd7c6b14a199.gif)](https://gyazo.com/c020f5c8fb7b86ce2cf8fd7c6b14a199)
+[![Image from Gyazo](https://i.gyazo.com/1cb2b4981437e4c5f0075a474b99f8e5.gif)](https://gyazo.com/1cb2b4981437e4c5f0075a474b99f8e5)
 - shopを一覧できます。SHOP名とカテゴリーごとに検索することができます。  
 - shopを選択するとユーザーページに遷移します。
 ## USERページ
-[![Image from Gyazo](https://i.gyazo.com/e8465730012abc272d177281e28357c9.gif)](https://gyazo.com/e8465730012abc272d177281e28357c9)
+[![Image from Gyazo](https://i.gyazo.com/beeb0955cf40589a54847652e34f19f5.gif)](https://gyazo.com/beeb0955cf40589a54847652e34f19f5)
 - shopの画像とuser画像を表示しています。  
 - 自分のshopの情報とSHOPストーリー(どのようなshopなのか)を表示しています。  
 - サイドバーでは、お気に入りのSTORYとITEM、購入履歴、売り上げ管理画面、CHATメニュー、お知らせ、ログアウトなどの機能があります。  
 - 自分の投稿したSTORYと商品を一覧しています。
 ## CHATページ
-[![Image from Gyazo](https://i.gyazo.com/1f0af42292e0fc8927425dcde93e5653.gif)](https://gyazo.com/1f0af42292e0fc8927425dcde93e5653)  
+[![Image from Gyazo](https://i.gyazo.com/ed02f87b6f581f9d59449bc482e516f2.gif)](https://gyazo.com/ed02f87b6f581f9d59449bc482e516f2)
 - メッセージのやりとりをしたことがあるuserが一覧になっています。名前を選択することでそれぞれのチャット画面に遷移します。  
 - 自分のメッセージは右側に、相手のメッセージは左側に表示されます。
 ## 通知ページ
-[![Image from Gyazo](https://i.gyazo.com/12586b59e917cfa040affea3e5716170.gif)](https://gyazo.com/12586b59e917cfa040affea3e5716170)
+[![Image from Gyazo](https://i.gyazo.com/aad7b2830a2a6c5544ffdcae72ef81ab.gif)](https://gyazo.com/aad7b2830a2a6c5544ffdcae72ef81ab)
 - 自分が投稿したSTORYにいいねやコメントがついた時、出品した商品にいいねやコメントがついた時、チャットメッセージが届いた時、フォローされた時、コメントした商品やSTORYに他userがコメントした時に通知がきます。  
 - 通知が来たらheaderの通知アイコンにオレンジ色のマークがつきます。
 
@@ -135,7 +135,7 @@ VScode
 - 商品のカテゴリーを多階層にする。  
 - 商品、STORY共に複数枚の画像を投稿できるようにする。  
 - 商品の売買が行われた後の機能。  
-  - 商品を受け取りレビューできる機能
+  - 商品を受け取った後レビューできる機能
 
 <br>
 
