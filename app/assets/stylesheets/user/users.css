@@ -38,7 +38,7 @@ a {
 .user_side_bar{
   display: flex;
   border-bottom: solid 1px rgb(181, 181, 181);
-  width: 15vw;
+  width: 100%;
   padding: 25px 0 5px 5px;
   align-items: center;
 }

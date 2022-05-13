@@ -280,6 +280,18 @@ a {
 
 }
 
+@media screen and (min-width:1300px){
+  .top_image p{
+    font-size: 40px;
+  }
+  .top_image span {
+    font-size:60px;
+  }
+  .main_image_text{
+    font-size: 40px;
+  }
+}
+
 @media screen and (max-width:767px){
   .shopping_image{
     width: 70px;
